@@ -1,0 +1,47 @@
+/* =============================
+    Espaciado en botones con íconos
+============================= */
+
+/* Aplica margen derecho al ícono dentro de un botón para separarlo del texto */
+a.button i {
+  margin-right: 0.4rem; /* separa el icono del texto */
+}
+
+
+/* =============================
+    Colores por estado de propuesta
+============================= */
+
+/* Color amarillo suave para propuestas 'no presentadas' */
+.color-no_presentado {
+  color: #ffdd57 !important;
+}
+
+/* Color azul moderado para propuestas 'presentadas' */
+.color-presentadoe {
+  color: #3273dc !important;
+}
+
+/* Color verde para propuestas 'aceptadas' */
+.color-aceptado {
+  color: #48c774 !important;
+}
+
+/* Color rojo para propuestas 'canceladas' */
+.color-cancelado {
+  color: #f14668 !important;
+}
+
+
+/* =============================
+    Contenedor estilizado para formulario de propuestas
+============================= */
+
+.form-wrapperPropuesta {
+  max-width: 95%; /* Ancho máximo del formulario */
+  margin: 1rem auto; /* Centrado con margen vertical */
+  padding: 2rem; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+  overflow: visible; /* Permite que el contenido sobresalga si es necesario */
+}

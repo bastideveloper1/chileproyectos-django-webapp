@@ -1,0 +1,410 @@
+{% extends 'base/base_empresa.html' %} 
+{% block content %} 
+{% load static %}
+
+<!-- Contenido principal -->
+<section class="column is-10 p-6 mb-4 has-background">
+  <div class="form-wrapperPropuesta">
+    <h1 class="title is-3 has-text-centered has-text-black">Mis Propuestas</h1>
+
+    <!-- Filtros y buscador -->
+    <div class="columns mb-4">
+      <div class="column is-4">
+        <div class="field">
+          <div class="control has-icons-left">
+            <input class="input" type="text" placeholder="Buscar proyecto..." />
+            <span class="icon is-left"><i class="fas fa-search"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable">
+        <thead>
+          <tr>
+            <th class="has-text-black">Nombre</th>
+            <th class="has-text-black">Presupuesto</th>
+            <th class="has-text-black">Estado</th>
+            <th class="has-text-black">Económica</th>
+            <th class="has-text-black">Técnica</th>
+            <th class="has-text-black">Enviar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Remodelación Casa</td>
+            <td>$1.500.000</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="actualizarEstado(this); mostrarIconoEstado(this);"
+                  >
+                    <option value="no_presentado">No presentado</option>
+                    <option value="presentado">Presentado</option>
+                    <option value="aceptado">Aceptado</option>
+                    <option value="cancelado">Cancelado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_economico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-invoice-dollar"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_tecnico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-alt"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a href="#" class="button is-small is-danger"
+                ><i class="fas fa-paper-plane"></i> Enviar</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Instalación Eléctrica</td>
+            <td>—</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="actualizarEstado(this); mostrarIconoEstado(this);"
+                  >
+                    <option value="no_presentado">No presentado</option>
+                    <option value="presentado">Presentado</option>
+                    <option value="aceptado">Aceptado</option>
+                    <option value="cancelado">Cancelado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_economico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-invoice-dollar"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_tecnico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-alt"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a href="#" class="button is-small is-danger"
+                ><i class="fas fa-paper-plane"></i> Enviar</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Pintura Fachada</td>
+            <td>$800.000</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="actualizarEstado(this); mostrarIconoEstado(this);"
+                  >
+                    <option value="no_presentado">No presentado</option>
+                    <option value="presentado">Presentado</option>
+                    <option value="aceptado">Aceptado</option>
+                    <option value="cancelado">Cancelado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_economico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-invoice-dollar"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_tecnico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-alt"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a href="#" class="button is-small is-danger"
+                ><i class="fas fa-paper-plane"></i> Enviar</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Construcción Terraza</td>
+            <td>—</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="actualizarEstado(this); mostrarIconoEstado(this);"
+                  >
+                    <option value="no_presentado">No presentado</option>
+                    <option value="presentado">Presentado</option>
+                    <option value="aceptado">Aceptado</option>
+                    <option value="cancelado">Cancelado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_economico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-invoice-dollar"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_tecnico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-alt"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a href="#" class="button is-small is-danger"
+                ><i class="fas fa-paper-plane"></i> Enviar</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Habilitación Local Comercial</td>
+            <td>$2.000.000</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="actualizarEstado(this); mostrarIconoEstado(this);"
+                  >
+                    <option value="no_presentado">No presentado</option>
+                    <option value="presentado">Presentado</option>
+                    <option value="aceptado">Aceptado</option>
+                    <option value="cancelado">Cancelado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_economico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-invoice-dollar"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_tecnico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-alt"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a href="#" class="button is-small is-danger"
+                ><i class="fas fa-paper-plane"></i> Enviar</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Refuerzo de Techumbre</td>
+            <td>—</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="actualizarEstado(this); mostrarIconoEstado(this);"
+                  >
+                    <option value="no_presentado">No presentado</option>
+                    <option value="presentado">Presentado</option>
+                    <option value="aceptado">Aceptado</option>
+                    <option value="cancelado">Cancelado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_economico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-invoice-dollar"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_tecnico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-alt"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a href="#" class="button is-small is-danger"
+                ><i class="fas fa-paper-plane"></i> Enviar</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Ampliación Segundo Piso</td>
+            <td>$3.000.000</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="actualizarEstado(this); mostrarIconoEstado(this);"
+                  >
+                    <option value="no_presentado">No presentado</option>
+                    <option value="presentado">Presentado</option>
+                    <option value="aceptado">Aceptado</option>
+                    <option value="cancelado">Cancelado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_economico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-invoice-dollar"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a
+                href="{% url 'formulario_tecnico' %}"
+                class="button is-small is-info"
+                ><i class="fas fa-file-alt"></i> Formulario</a
+              >
+            </td>
+            <td>
+              <a href="#" class="button is-small is-danger"
+                ><i class="fas fa-paper-plane"></i> Enviar</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Paginación -->
+    <nav
+      class="pagination is-centered mt-4"
+      role="navigation"
+      aria-label="pagination"
+    >
+      <a class="pagination-previous">Anterior</a>
+      <a class="pagination-next">Siguiente</a>
+      <ul class="pagination-list">
+        <li>
+          <a class="pagination-link is-current" aria-label="Página 1">1</a>
+        </li>
+        <li><a class="pagination-link">2</a></li>
+        <li><a class="pagination-link">3</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const buscador = document.querySelector(
+      'input[placeholder="Buscar proyecto..."]'
+    );
+    const filtroCategoria = document.querySelectorAll("select")[0];
+    const filtroSubcategoria = document.querySelectorAll("select")[1];
+    const filas = document.querySelectorAll("tbody tr");
+
+    function filtrarTabla() {
+      const texto = buscador.value.toLowerCase();
+      const categoriaSeleccionada = filtroCategoria.value;
+      const subcategoriaSeleccionada = filtroSubcategoria.value;
+
+      filas.forEach((fila) => {
+        const columnas = fila.querySelectorAll("td");
+        const nombre = columnas[0].textContent.toLowerCase();
+        const categoria = columnas[1].textContent;
+        const subcategoria = columnas[2].textContent;
+
+        const coincideTexto = nombre.includes(texto);
+        const coincideCategoria =
+          categoriaSeleccionada === "Categoría" ||
+          categoria === categoriaSeleccionada;
+        const coincideSubcategoria =
+          subcategoriaSeleccionada === "Subcategoría" ||
+          subcategoria === subcategoriaSeleccionada;
+
+        fila.style.display =
+          coincideTexto && coincideCategoria && coincideSubcategoria
+            ? ""
+            : "none";
+      });
+    }
+
+    buscador.addEventListener("input", filtrarTabla);
+  });
+
+  function actualizarEstado(selectElement) {
+    const fila = selectElement.closest("tr");
+    const botonEnviar = fila.querySelector(".button.is-danger");
+
+    if (selectElement.value === "no_presentado") {
+      botonEnviar.classList.remove("is-disabled");
+    } else {
+      botonEnviar.classList.add("is-disabled");
+    }
+  }
+  function mostrarIconoEstado(select) {
+    const icono = select.closest(".control").querySelector(".estado-icono");
+    const estado = select.value;
+
+    icono.className = "fa-solid estado-icono"; // limpiar
+
+    switch (estado) {
+      case "no_presentado":
+        icono.classList.add("fa-circle-question", "color-no_presentado"); // ícono más representativo de "aún no enviado"
+        break;
+      case "presentado":
+        icono.classList.add("fa-file-circle-check", "color-presentado"); // representando que ya fue entregado
+        break;
+      case "aceptado":
+        icono.classList.add("fa-circle-check", "color-aceptado"); // aceptación clara
+        break;
+      case "cancelado":
+        icono.classList.add("fa-ban", "color-cancelado"); // cancelación directa
+        break;
+    }
+  }
+</script>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+/* ==================================================
+    Espaciado general entre navbar y contenido
+   ================================================== */
+section.section {
+  margin-top: 4rem;        /* Espacio superior respecto al navbar */
+  margin-bottom: 14rem;    /* Espacio inferior para separar del footer o contenido adicional */
+}
+
+
+/* ==================================================
+    Estilo general para los enlaces de caja de opciones
+   ================================================== */
+.opcion-box-link {
+  text-decoration: none;   /* Quita el subrayado de los enlaces */
+  color: inherit;          /* Hereda el color del texto del elemento padre */
+  display: block;          /* Hace que el enlace abarque toda la caja */
+}
+
+
+/* ==================================================
+    Estilo base para cada caja de opción
+   ================================================== */
+.opcion-box {
+  cursor: pointer;         /* Cambia el cursor al pasar sobre la caja */
+  transition: box-shadow 0.2s;  /* Suaviza la aparición de la sombra */
+  border-radius: 12px;     /* Bordes redondeados */
+  padding: 1.5rem;         /* Espaciado interno */
+  border: 1px solid #e6e6e6; /* Borde gris claro */
+  color: inherit;          /* Hereda el color del texto */
+  text-decoration: none;   /* Sin subrayado (por seguridad) */
+  display: block;          /* Ocupa todo el ancho disponible */
+}
+
+
+/* ==================================================
+    Efecto hover para la caja de opción
+   ================================================== */
+.opcion-box:hover {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08); /* Sombra suave al pasar el cursor */
+  border-color: #ccc;      /* Cambia el color del borde */
+}
+
+
+/* ==================================================
+    Estilos repetidos (y mejorados) para enlaces con opción-box
+   ================================================== */
+.opcion-box-link {
+  text-decoration: none;              /* Quita subrayado */
+  color: inherit;                     /* Hereda color de texto */
+  display: block;                     /* Para abarcar todo el contenedor */
+  transition: transform 0.2s ease, 
+              box-shadow 0.2s ease;   /* Suaviza transformación y sombra */
+}
+
+
+/* Estilo de la caja dentro del enlace */
+.opcion-box-link .opcion-box {
+  cursor: pointer;         
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;   /* Fondo blanco */
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+
+/* ==================================================
+    Efecto al pasar el mouse sobre el enlace completo
+   ================================================== */
+.opcion-box-link:hover {
+  transform: translateY(-3px);  /* Levanta ligeramente la caja */
+}
+
+
+/* Sombra mejorada al hacer hover sobre el enlace */
+.opcion-box-link:hover .opcion-box {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);  /* Sombra más marcada */
+  border-color: #ccc;                         /* Borde más visible */
+}

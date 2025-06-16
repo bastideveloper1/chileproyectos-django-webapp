@@ -1,0 +1,83 @@
+{% extends 'base/base_registration.html' %} 
+ {% block content %}
+
+<section class="section registro-form">
+  <div class="container has-text-centered">
+    <h2 class="title is-3 has-text-weight-bold subtitulo-subrayado mb-6">
+      Registrar Cliente
+    </h2>
+
+    <div class="box mx-auto" style="max-width: 400px; text-align: left">
+      <form method="post">
+        {% csrf_token %}
+        <div class="field">
+          <label class="label">Correo electrónico</label>
+          <div class="control has-icons-left">
+            <input
+              class="input"
+              type="email"
+              name="email"
+              placeholder="ejemplo@correo.cl"
+            />
+            <span class="icon is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Nombre Usuario</label>
+          <div class="control has-icons-left">
+            <input
+              class="input"
+              type="text"
+              name="username"
+              placeholder="Tu nombre de usuario"
+            />
+            <span class="icon is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Contraseña</label>
+          <div class="control has-icons-left">
+            <input
+              class="input"
+              type="password"
+              name="password1"
+              placeholder="••••••••"
+            />
+            <span class="icon is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Verificar contraseña</label>
+          <div class="control has-icons-left">
+            <input
+              class="input"
+              type="password"
+              name="password2"
+              placeholder="••••••••"
+            />
+            <span class="icon is-left">
+              <i class="fas fa-check-circle"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field mt-5">
+          <div class="control">
+            <button class="button is-link is-fullwidth">Registrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

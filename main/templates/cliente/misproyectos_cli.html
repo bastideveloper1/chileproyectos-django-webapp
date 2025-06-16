@@ -1,0 +1,303 @@
+{% extends 'base/base_cliente.html' %} 
+{% block content %}
+{% load static %} 
+
+    <!-- Contenido principal -->
+ <section class="column is-10 p-6 mb-4 has-background">
+  <div class="form-wrapperProyecto">
+    <h1 class="title is-3 has-text-centered has-text-black">Mis Proyectos Creados</h1>
+
+    <!-- Botón para crear nuevo proyecto -->
+   <!-- Botón para crear nuevo proyecto -->
+<div class="has-text-right mb-4">
+  <a href="{% url 'vista_cliente_proyecto' %}" class="button is-small is-link is-normal">
+    <i class="fas fa-plus mr-2"></i>Crear Nuevo Proyecto
+  </a>
+</div>
+
+  <!-- Filtros y buscador -->
+  <div class="columns mb-4">
+    <div class="column is-4">
+      <div class="select is-fullwidth">
+        <select>
+          <option>Categoría</option>
+          <option>Construcción</option>
+          <option>Obras Menores</option>
+          <option>Electricidad</option>
+          <option>Remodelación</option>
+        </select>
+      </div>
+    </div>
+   
+    <div class="column is-4">
+      <div class="field">
+        <div class="control has-icons-left">
+          <input class="input" type="text" placeholder="Buscar proyecto...">
+          <span class="icon is-left"><i class="fas fa-search"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Tabla de proyectos -->
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable">
+        <thead>
+          <tr>
+            <th class="has-text-black">Nombre</th>
+            <th class="has-text-black">Categoría</th>
+            <th class="has-text-black">Estado</th>
+            <th class="has-text-black">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Proyecto 1 -->
+          <tr>
+            <td>Remodelación Cocina</td>
+            <td>Remodelación</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select onchange="controlarEstado(this);">
+                    <option value="no_publicado">No Publicado</option>
+                    <option value="publicado">Publicado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-eye-slash color-no-publicado"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link"><i class="fas fa-eye mr-1"></i> Ver Detalle</a>
+              <a class="button is-small is-danger boton-publicar" onclick="confirmarPublicacion(this)"><i class="fas fa-upload mr-1"></i> Publicar</a>
+            </td>
+          </tr>
+
+          <!-- Proyecto 2 -->
+          <tr>
+            <td>Ampliación Segundo Piso</td>
+            <td>Construcción</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select onchange="controlarEstado(this);">
+                    <option value="no_publicado">No Publicado</option>
+                    <option value="publicado">Publicado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-eye-slash color-no-publicado"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link"><i class="fas fa-eye mr-1"></i> Ver Detalle</a>
+              <a class="button is-small is-danger boton-publicar" onclick="confirmarPublicacion(this)"><i class="fas fa-upload mr-1"></i> Publicar</a>
+            </td>
+          </tr>
+
+          <!-- Proyecto 3 -->
+          <tr>
+            <td>Instalación Eléctrica</td>
+            <td>Electricidad</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select onchange="controlarEstado(this);">
+                    <option value="no_publicado">No Publicado</option>
+                    <option value="publicado">Publicado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-eye-slash color-no-publicado"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link"><i class="fas fa-eye mr-1"></i> Ver Detalle</a>
+              <a class="button is-small is-danger boton-publicar" onclick="confirmarPublicacion(this)"><i class="fas fa-upload mr-1"></i> Publicar</a>
+            </td>
+          </tr>
+
+          <!-- Proyecto 4 -->
+          <tr>
+            <td>Construcción Quincho</td>
+            <td>Obras Menores</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select onchange="controlarEstado(this);">
+                    <option value="no_publicado">No Publicado</option>
+                    <option value="publicado">Publicado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-eye-slash color-no-publicado"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link"><i class="fas fa-eye mr-1"></i> Ver Detalle</a>
+              <a class="button is-small is-danger boton-publicar" onclick="confirmarPublicacion(this)"><i class="fas fa-upload mr-1"></i> Publicar</a>
+            </td>
+          </tr>
+
+          <!-- Proyecto 5 -->
+          <tr>
+            <td>Pintura Interior</td>
+            <td>Remodelación</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select onchange="controlarEstado(this);">
+                    <option value="no_publicado">No Publicado</option>
+                    <option value="publicado">Publicado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-eye-slash color-no-publicado"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link"><i class="fas fa-eye mr-1"></i> Ver Detalle</a>
+              <a class="button is-small is-danger boton-publicar" onclick="confirmarPublicacion(this)"><i class="fas fa-upload mr-1"></i> Publicar</a>
+            </td>
+          </tr>
+
+          <!-- Proyecto 6 -->
+          <tr>
+            <td>Instalación Panel Solar</td>
+            <td>Electricidad</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select onchange="controlarEstado(this);">
+                    <option value="no_publicado">No Publicado</option>
+                    <option value="publicado">Publicado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-eye-slash color-no-publicado"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link"><i class="fas fa-eye mr-1"></i> Ver Detalle</a>
+              <a class="button is-small is-danger boton-publicar" onclick="confirmarPublicacion(this)"><i class="fas fa-upload mr-1"></i> Publicar</a>
+            </td>
+          </tr>
+
+          <!-- Proyecto 7 -->
+          <tr>
+            <td>Reparación Techo</td>
+            <td>Construcción</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select onchange="controlarEstado(this);">
+                    <option value="no_publicado">No Publicado</option>
+                    <option value="publicado">Publicado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-eye-slash color-no-publicado"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link"><i class="fas fa-eye mr-1"></i> Ver Detalle</a>
+              <a class="button is-small is-danger boton-publicar" onclick="confirmarPublicacion(this)"><i class="fas fa-upload mr-1"></i> Publicar</a>
+            </td>
+          </tr>
+
+          <!-- Proyecto 8 -->
+          <tr>
+            <td>Ampliación Local Comercial</td>
+            <td>Remodelación</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select onchange="controlarEstado(this);">
+                    <option value="no_publicado">No Publicado</option>
+                    <option value="publicado">Publicado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-eye-slash color-no-publicado"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link"><i class="fas fa-eye mr-1"></i> Ver Detalle</a>
+              <a class="button is-small is-danger boton-publicar" onclick="confirmarPublicacion(this)"><i class="fas fa-upload mr-1"></i> Publicar</a>
+            </td>
+          </tr>
+
+          <!-- Proyecto 9 -->
+          <tr>
+            <td>Terraza con Iluminación</td>
+            <td>Obras Menores</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select onchange="controlarEstado(this);">
+                    <option value="no_publicado">No Publicado</option>
+                    <option value="publicado">Publicado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-eye-slash color-no-publicado"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link"><i class="fas fa-eye mr-1"></i> Ver Detalle</a>
+              <a class="button is-small is-danger boton-publicar" onclick="confirmarPublicacion(this)"><i class="fas fa-upload mr-1"></i> Publicar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Paginación -->
+  <nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination">
+    <a class="pagination-previous">Anterior</a>
+    <a class="pagination-next">Siguiente</a>
+    <ul class="pagination-list">
+      <li><a class="pagination-link is-current" aria-label="Página 1">1</a></li>
+      <li><a class="pagination-link">2</a></li>
+      <li><a class="pagination-link">3</a></li>
+    </ul>
+  </nav> 
+    </div>
+</section>
+<script>
+function controlarEstado(select) {
+  const fila = select.closest("tr");
+  const icono = fila.querySelector(".estado-icono");
+  const boton = fila.querySelector(".boton-publicar");
+  const estado = select.value;
+
+  icono.className = "fa-solid estado-icono";
+  if (estado === "publicado") {
+    icono.classList.add("fa-eye", "color-publicado");
+    boton.classList.add("is-disabled");
+  } else {
+    icono.classList.add("fa-eye-slash", "color-no-publicado");
+    boton.classList.remove("is-disabled");
+  }
+}
+
+function confirmarPublicacion(boton) {
+  if (boton.classList.contains("is-disabled")) return;
+  const confirmado = confirm("¿Deseas publicar este proyecto?");
+  if (confirmado) {
+    alert("Proyecto publicado correctamente");
+  }
+}
+</script>
+
+{% endblock %}
+

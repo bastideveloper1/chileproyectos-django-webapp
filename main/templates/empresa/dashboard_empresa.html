@@ -1,0 +1,157 @@
+{% extends 'base/base_empresa.html' %} 
+{% block content %} 
+ {% load static %}
+<!-- Contenido -->
+<section class="column is-10 p-5">
+  <h1 class="title is-4 mb-5">Dashboard General</h1>
+
+  <!-- Tarjetas resumen -->
+  <div class="columns is-multiline">
+    <div class="column is-3">
+      <div class="box has-text-centered">
+        <p class="title is-5">12</p>
+        <p>Proyectos Totales</p>
+      </div>
+    </div>
+    <div class="column is-3">
+      <div class="box has-text-centered">
+        <p class="title is-5">4</p>
+        <p>En espera de aceptación</p>
+      </div>
+    </div>
+    <div class="column is-3">
+      <div class="box has-text-centered">
+        <p class="title is-5">5</p>
+        <p>En curso</p>
+      </div>
+    </div>
+    <div class="column is-3">
+      <div class="box has-text-centered">
+        <p class="title is-5">3</p>
+        <p>Finalizados</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gráfico de barras -->
+  <div class="box">
+    <h2 class="title is-6 mb-3">Resumen mensual de propuestas</h2>
+    <canvas id="graficoProyectos" width="400" height="150"></canvas>
+  </div>
+
+  <!-- Gráficos adicionales -->
+  <div class="columns mt-5">
+    <!-- Gráfico de pastel -->
+    <div class="column">
+      <div class="box">
+        <h2 class="title is-6 mb-3">Distribución de Proyectos</h2>
+        <canvas id="graficoPastel"></canvas>
+      </div>
+    </div>
+
+    <!-- Gráfico de línea -->
+    <div class="column">
+      <div class="box">
+        <h2 class="title is-6 mb-3">Contactos Utilizados por Mes</h2>
+        <canvas id="graficoLinea"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla de notificaciones -->
+  <div class="box">
+    <h2 class="title is-6">Notificaciones recientes</h2>
+    <table class="table is-fullwidth is-striped is-hoverable">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Mensaje</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>20/05/2025</td>
+          <td>El cliente aceptó tu propuesta de remodelación</td>
+          <td><span class="tag is-success">Aceptado</span></td>
+        </tr>
+        <tr>
+          <td>19/05/2025</td>
+          <td>Propuesta enviada para proyecto eléctrico</td>
+          <td><span class="tag is-warning">Pendiente</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Paginación -->
+  <nav
+    class="pagination is-centered mt-4"
+    role="navigation"
+    aria-label="pagination"
+  >
+    <a class="pagination-previous">Anterior</a>
+    <a class="pagination-next">Siguiente</a>
+    <ul class="pagination-list">
+      <li><a class="pagination-link is-current" aria-label="Página 1">1</a></li>
+      <li><a class="pagination-link">2</a></li>
+      <li><a class="pagination-link">3</a></li>
+    </ul>
+  </nav>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Gráfico de barras
+  const ctx = document.getElementById("graficoProyectos").getContext("2d");
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Enero", "Feb", "Mar", "Abr", "May"],
+      datasets: [
+        {
+          label: "Propuestas enviadas",
+          data: [3, 5, 2, 8, 4],
+          backgroundColor: "#3273dc",
+        },
+      ],
+    },
+    options: { responsive: true, scales: { y: { beginAtZero: true } } },
+  });
+
+  // Gráfico de pastel
+  const pastel = document.getElementById("graficoPastel").getContext("2d");
+  new Chart(pastel, {
+    type: "doughnut",
+    data: {
+      labels: ["Finalizados", "En curso", "En espera"],
+      datasets: [
+        {
+          data: [3, 5, 4],
+          backgroundColor: ["#48c774", "#3273dc", "#ffdd57"],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: { responsive: true, plugins: { legend: { position: "bottom" } } },
+  });
+
+  // Gráfico de línea
+  const linea = document.getElementById("graficoLinea").getContext("2d");
+  new Chart(linea, {
+    type: "line",
+    data: {
+      labels: ["Enero", "Feb", "Mar", "Abr", "May"],
+      datasets: [
+        {
+          label: "Contactos utilizados",
+          data: [1, 3, 2, 5, 4],
+          fill: false,
+          borderColor: "#23a34a",
+          tension: 0.3,
+        },
+      ],
+    },
+    options: { responsive: true, scales: { y: { beginAtZero: true } } },
+  });
+</script>
+{% endblock %}

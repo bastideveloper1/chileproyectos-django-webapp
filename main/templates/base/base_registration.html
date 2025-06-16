@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ChileProyectos</title>
+
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+    <section class="navbar-section">
+      <div
+        class="container is-flex is-align-items-center is-justify-content-center is-flex-wrap-wrap py-2"
+      >
+        <!-- Logo a la izquierda -->
+        <div class="navbar-logo mr-6">
+          <figure class="image is-64x64 is-skeleton">
+            <img
+              src="{% static 'img/logo-chileproyectos.png.jpeg' %}"
+              alt="ChileProyectos"
+            />
+          </figure>
+        </div>
+
+        <!-- Enlaces centrados -->
+        <div
+          class="navbar-links is-flex is-align-items-center is-justify-content-center"
+        >
+          <a
+            href="{% url 'home' %}"
+            class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Inicio</a
+          >
+          <a
+            href="{% url 'seleccion_registro' %}"
+            class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Registrarse</a
+          >
+          <a
+            href="{% url 'login' %}"
+            class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Ingresar</a
+          >
+          <a class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Tienda</a
+          >
+        </div>
+      </div>
+    </section>
+
+    {% block content %}{% endblock %} 
+    
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

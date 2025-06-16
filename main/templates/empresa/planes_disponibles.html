@@ -1,0 +1,139 @@
+{% extends 'base/base_empresa.html' %}  
+{% block content %} 
+{% load static %}
+
+<section class="section">
+  <div class="container">
+    <h1 class="title is-3">Planes disponibles</h1>
+    <p class="subtitle is-6">
+      Selecciona el plan que mejor se ajuste a tus necesidades
+    </p>
+
+    <div class="columns">
+      <div class="column is-9">
+        <div class="columns is-multiline">
+          <!-- Plan 1 -->
+          <div class="column is-6">
+            <div class="card">
+              <div
+                class="card-image has-background-light"
+                style="height: 120px"
+              ></div>
+              <div class="card-content">
+                <p class="has-text-weight-semibold">Plan 1</p>
+                <p>50 contactos disponibles</p>
+                <p>Presupuesto de $5,000,000</p>
+                <p>Categoría disponible: 2</p>
+                <p>Otras categorías disponibles: 0</p>
+                <p class="has-text-weight-bold mt-2">$100,000 por año</p>
+                <a
+                  href="{% url 'vista_empresa' %}"
+                  class="button is-link is-small mt-2"
+                  >Comprar plan</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan 2 -->
+          <div class="column is-6">
+            <div class="card">
+              <div
+                class="card-image has-background-light"
+                style="height: 120px"
+              ></div>
+              <div class="card-content">
+                <p class="has-text-weight-semibold">Plan 2</p>
+                <p>75 contactos disponibles</p>
+                <p>Presupuesto de $7,500,000</p>
+                <p>Categoría disponible: 2</p>
+                <p>Otras categorías disponibles: 0</p>
+                <p class="has-text-weight-bold mt-2">$150,000 por año</p>
+                <a
+                  href="{% url 'vista_empresa' %}"
+                  class="button is-link is-small mt-2"
+                  >Comprar plan</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="column is-6">
+            <div class="card">
+              <div
+                class="card-image has-background-light"
+                style="height: 120px"
+              ></div>
+              <div class="card-content">
+                <p class="has-text-weight-semibold">Plan 3</p>
+                <p>100 contactos disponibles</p>
+                <p>Presupuesto de $15,000,000</p>
+                <p>Categoría seleccionada: 2</p>
+                <p>Otras categorías disponibles: 0</p>
+                <p class="has-text-weight-bold mt-2">$250,000 por año</p>
+                <a
+                  href="{% url 'vista_empresa' %}"
+                  class="button is-link is-small mt-2"
+                  >Comprar plan</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan 4 -->
+          <div class="column is-6">
+            <div class="card">
+              <div
+                class="card-image has-background-light"
+                style="height: 120px"
+              ></div>
+              <div class="card-content">
+                <p class="has-text-weight-semibold">Plan 4</p>
+                <p>150 contactos disponibles</p>
+                <p>Presupuesto de $25,000,000</p>
+                <p>Categoría seleccionada: 3</p>
+                <p>Otras categorías disponibles: 1</p>
+                <p class="has-text-weight-bold mt-2">$300,000 por año</p>
+                <a
+                  href="{% url 'vista_empresa' %}"
+                  class="button is-link is-small mt-2"
+                  >Comprar plan</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-3">
+        <div class="box has-text-centered">
+          <figure class="image is-64x64 is-inline-block">
+            <img
+              src="{% static 'img/icon-beneficios.png' %}"
+              alt="Beneficios"
+            />
+          </figure>
+          <p class="has-text-weight-semibold">Múltiples beneficios</p>
+          <p class="is-size-7">Varias opciones para elegir</p>
+        </div>
+        <div class="box has-text-centered">
+          <figure class="image is-64x64 is-inline-block">
+            <img src="{% static 'img/icon-seguridad.png' %}" alt="Seguridad" />
+          </figure>
+          <p class="has-text-weight-semibold">Transacciones seguras</p>
+          <p class="is-size-7">Seguridad ante todo</p>
+        </div>
+        <div class="box has-text-centered">
+          <figure class="image is-64x64 is-inline-block">
+            <img src="{% static 'img/icon-pago.png' %}" alt="Pago fácil" />
+          </figure>
+          <p class="has-text-weight-semibold">Pago fácil</p>
+          <p class="is-size-7">Proceso de pago simplificado</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

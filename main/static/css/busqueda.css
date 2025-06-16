@@ -1,0 +1,169 @@
+/* ====================================
+    Estilo general de tarjeta de proyecto destacada
+   ==================================== */
+.card-proyecto {
+  border: 1.5px solid #f7bcbc;              /* Borde rosado tenue */
+  border-radius: 10px;                      /* Bordes redondeados */
+  padding: 1.5rem;                          /* Espaciado interno */
+  margin-bottom: 2rem;                      /* Espaciado inferior entre tarjetas */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);  /* Sombra suave */
+}
+
+
+/* ====================================
+   🖼 Imagen circular (como logo o avatar)
+   ==================================== */
+.img-redonda {
+  border-radius: 50%;         /* Forma circular */
+  border: 1px solid #ccc;     /* Borde gris claro */
+  object-fit: contain;        /* Mantiene proporción dentro del contenedor */
+  width: 90px;
+  height: 90px;
+}
+
+
+/* ====================================
+    Elementos dentro de la tarjeta
+   ==================================== */
+.titulo-proyecto {
+  font-weight: 700;           /* Negrita */
+  font-size: 1.1rem;          /* Tamaño ligeramente mayor */
+  margin-bottom: 0.2rem;
+}
+
+.categoria {
+  font-size: 0.9rem;
+  color: #777;                /* Gris oscuro */
+  margin-bottom: 0.4rem;
+}
+
+.descripcion {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-proyecto .tags {
+  margin-bottom: 0.8rem;
+}
+
+.card-proyecto .has-text-right {
+  margin-top: 0.5rem;
+}
+
+
+/* Botón de acción en tarjeta destacada */
+.card-proyecto .button.is-dark {
+  background-color: #2e2e2e;  /* Fondo oscuro */
+  color: #fff;                /* Texto blanco */
+  font-size: 0.85rem;
+}
+
+
+/* ====================================
+    Estructura del encabezado de la tarjeta
+   ==================================== */
+.card-proyecto .encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.card-proyecto .encabezado .titulo-proyecto {
+  margin-right: auto;
+}
+
+.card-proyecto .encabezado .button {
+  margin-left: auto;
+}
+
+
+/* ====================================
+    Estilo para proyectos normales (no destacados)
+   ==================================== */
+.proyecto-normal {
+  border: 1.5px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s; /* Suaviza el efecto hover */
+}
+
+.proyecto-normal:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); /* Sombra más visible al pasar el mouse */
+}
+
+
+/* Contenedor de imagen */
+.proyecto-normal .image {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Tipografía y etiquetas */
+.proyecto-normal .has-text-weight-bold {
+  font-size: 1.05rem;
+}
+
+.proyecto-normal .tags {
+  margin-top: 0.4rem;
+}
+
+.proyecto-normal .tag {
+  font-size: 0.75rem;
+  margin-right: 0.25rem;
+}
+
+
+/* Botones y iconos */
+.proyecto-normal .button {
+  font-size: 0.8rem;
+}
+
+.proyecto-normal .fa-phone {
+  font-size: 0.8rem;
+}
+
+.proyecto-normal .button.is-outlined.is-dark:hover {
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+
+/* ====================================
+    Estilos responsivos para pantallas pequeñas
+   ==================================== */
+@media screen and (max-width: 768px) {
+  .proyecto-normal .columns {
+    flex-direction: column;
+  }
+
+  .proyecto-normal .has-text-right {
+    text-align: left !important;
+    margin-top: 1rem;
+  }
+}
+
+
+/* Responsivo para tarjetas destacadas */
+@media screen and (max-width: 768px) {
+  .card-proyecto .columns {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-proyecto .column.is-narrow:last-child {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: left;
+  }
+
+  .card-proyecto .has-text-right {
+    text-align: left;
+  }
+}

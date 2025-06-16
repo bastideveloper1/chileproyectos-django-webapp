@@ -1,0 +1,276 @@
+/* =============================
+   Importación de Fuente Quicksand
+   
+============================= */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+/* =============================
+    Tipografía global
+============================= */
+body {
+  font-family: 'Quicksand', sans-serif;  /* Aplica la fuente Quicksand a todo el sitio */
+}
+
+/* =============================
+   Navbar / Encabezado
+============================= */
+.navbar-section {
+  background-color: #67acfc; /* Fondo azul pastel */
+  margin-bottom: 0; /* Sin separación inferior */
+}
+
+.navbar-logo img {
+  border-radius: 70%; /* Logo redondo */
+  border: 2px solid white; /* Borde blanco */
+  max-height: 90px;
+  margin-left: -3rem; /* Desplaza el logo hacia la izquierda */
+}
+
+.navbar-links a {
+  color: #121212; /* Color texto oscuro */
+  font-weight: 600; /* Texto seminegrita */
+  text-transform: uppercase; /* Mayúsculas */
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* =============================
+    Hero Principal
+============================= */
+.hero-chileproyectos {
+  background-image: url('../img/her-chileproyectos.png'); 
+  background-position: center 62%;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.hero-chileproyectos .hero-title {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.637); /* Fondo blanco translúcido */
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  padding: 0.5rem 1rem;
+}
+
+/* Colores específicos dentro del título */
+.hero-title .azul {
+  color: #3273dc; 
+}
+.hero-title .rojo {
+  color: #ff3860; 
+}
+
+.hero-chileproyectos .subtitle {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  background-color: rgba(255, 255, 255, 0.637);
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* =============================
+   Sección ¿Qué buscas?
+============================= */
+.que-buscas {
+  background-image: url('../img/que-buscas-bg.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  padding: 5rem 0 6rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.que-buscas h2.title {
+  font-size: 2.5rem;
+}
+
+.que-buscas .subtitle {
+  font-size: 1.6rem;
+}
+
+/* Botones Cliente / Empresa */
+.toggle-button {
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+  margin: 0 1rem;
+  background-color: #5e5ef3; 
+  border: none;
+  color: #efeded;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-button.is-selected {
+  background-color: #ed4e4e; /* Rojo cuando está seleccionado */
+  color: white;
+}
+
+/* Botón de Buscar */
+.buscar-btn {
+  font-size: 1.2rem;
+  background-color: #e57373; 
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.buscar-btn:hover {
+  background-color: #d14d4d;
+}
+
+/* =============================
+    Categorías de Servicios
+============================= */
+.categorias-servicios {
+  background-image: url('../img/categorias-bg.png');
+  background-size: cover;
+  background-position: center 68%;
+  background-repeat: no-repeat;
+  padding: 5rem 0 6rem;
+}
+
+.categorias-servicios .title {
+  color: #121212;
+  margin-bottom: 1rem;
+}
+
+.categorias-servicios .subtitle {
+  color: #2e2e2e;
+}
+
+/* Estilo para cada categoría */
+.categoria-box {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 1.5rem 0;
+}
+.categoria-box:hover {
+  background-color: #f5f5f5;
+}
+.categoria-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2a2a2a;
+  margin-top: 0.75rem;
+}
+
+/* =============================
+    Sección ¿Quiénes somos?
+============================= */
+.quienes-somos {
+  background-image: url('../img/quienes-somos-bg.png');
+  background-size: cover;
+  background-position: center 75%;
+  background-repeat: no-repeat;
+  padding: 6rem 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.box-quienes-contenedor {
+  background-color: rgba(255, 255, 255, 0.85); /* Fondo claro translúcido */
+  padding: 1.8rem 2.2rem;
+  border-radius: 10px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* =============================
+    Sección Objetivos
+============================= */
+.objetivos-chileproyectos {
+  background-image: url('../img/objetivos-bg.png');
+  background-size: cover;
+  background-position: center 68%;
+  background-repeat: no-repeat;
+  padding: 5rem 0;
+}
+
+.objetivos-fondo {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+/* =============================
+    Comentarios
+============================= */
+.comentarios-section {
+  background-image: url('../img/comentarios-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 68%;
+  padding: 5rem 0;
+}
+
+.comentario-box {
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =============================
+    Footer
+============================= */
+.chile-footer {
+  background-image: url('../img/footer-bg.png');
+  background-size: cover;
+  background-position: center 68%;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.301); /* Fondo oscuro translúcido */
+  background-blend-mode: darken;
+  padding: 2rem 0;
+}
+
+.chile-footer .image img {
+  border-radius: 50%;
+  border: 2px solid white;
+  max-height: 90px;
+}
+
+.chile-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =============================
+    Responsividad
+============================= */
+@media (max-width: 768px) {
+  .que-buscas {
+    background-position: center 10%; /* Ajusta fondo en móviles */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* =============================
+    Imágenes contenidas
+============================= */
+.section img {
+  object-fit: contain;
+}
+
+/* =============================
+    Estructura base de página
+============================= */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenido que ocupa el espacio restante */
+.main-content {
+  flex: 1;
+}

@@ -1,0 +1,549 @@
+{% extends 'base/base_principal.html' %} 
+ {% block content %}  
+ {% load static %}
+
+<!-- Título -->
+<section class="section has-text-centered">
+  <div class="container">
+    <h1 class="title is-3 has-text-weight-bold">Busca un Proyecto</h1>
+  </div>
+</section>
+
+<!-- Filtros -->
+<section class="section">
+  <div class="container has-text-centered">
+    <h1 class="title is-4 mb-4">Busca un Proyecto</h1>
+    <div
+      class="box"
+      style="max-width: 1000px; margin: 0 auto 2rem auto; padding: 2rem 3rem"
+    >
+      <div class="columns is-multiline is-centered is-vcentered">
+        <div class="column is-narrow">
+          <div class="select is-medium">
+            <select>
+              <option>Región</option>
+              <option>Metropolitana</option>
+              <option>Valparaíso</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="column is-narrow">
+          <div class="select is-medium">
+            <select>
+              <option>Categoría</option>
+              <option>Electricidad</option>
+              <option>Construcción</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="column is-narrow">
+          <button class="button is-medium is-light" id="btn-mas-filtros">
+            <span class="icon is-small"><i class="fas fa-filter"></i></span>
+            <span>Más Filtros</span>
+          </button>
+        </div>
+
+        <div class="column is-narrow">
+          <button class="button is-medium is-dark">
+            <span class="icon is-small">
+              <i class="fas fa-search"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filtros adicionales -->
+      <div id="filtros-adicionales" style="display: none">
+        <div class="columns is-multiline is-centered">
+          <div class="column is-narrow">
+            <div class="select is-medium">
+              <select>
+                <option>Comuna</option>
+                <option>Santiago</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="column is-narrow">
+            <div class="select is-medium">
+              <select>
+                <option>Subcategoría</option>
+                <option>Tableros de electricidad</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="column is-narrow">
+            <label class="label is-small">Precios</label>
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <input
+                class="slider is-fullwidth is-small"
+                step="10000"
+                min="0"
+                max="12000000"
+                value="6000000"
+                type="range"
+                id="precioRange"
+              />
+              <div class="is-size-7 mt-2">$0 - $12.000.000</div>
+            </div>
+          </div>
+
+          <div class="column is-narrow">
+            <button class="button is-medium is-dark">Aplicar Filtro</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proyectos Destacados -->
+<section class="section proyectos-destacados">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Proyectos destacados</h2>
+    <p class="subtitle is-6 has-text-centered mb-5">
+      Los primeros son los destacados
+    </p>
+
+    <div class="columns is-multiline is-variable is-6">
+      <!-- Tarjeta 1 -->
+      <div class="column is-6">
+        <div class="card-proyecto">
+          <div class="card-content">
+            <div class="columns is-vcentered is-mobile">
+              <div class="column is-narrow">
+                <figure class="image is-96x96">
+                  <img
+                    src="{% static 'img/logo-chileproyectos.png.jpeg' %}"
+                    alt="Imagen proyecto"
+                    class="img-redonda"
+                  />
+                </figure>
+              </div>
+              <div class="column">
+                <div
+                  class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+                >
+                  <p class="titulo-proyecto">Remodelación de oficina</p>
+                  <a class="button is-small is-light">Ver más información</a>
+                </div>
+                <p class="categoria">Remodelación - Oficinas</p>
+                <p class="descripcion">
+                  Se necesita remodelar oficinas para 40 empleados.
+                </p>
+                <div class="tags">
+                  <span class="tag is-light">Las Condes</span>
+                  <span class="tag is-light">13/05/2025</span>
+                </div>
+                <div class="has-text-right">
+                  <a class="button is-small is-dark"
+                    >Contactar <i class="fas fa-phone ml-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="column is-6">
+        <div class="card-proyecto">
+          <div class="card-content">
+            <div class="columns is-vcentered is-mobile">
+              <div class="column is-narrow">
+                <figure class="image is-96x96">
+                  <img
+                    src="{% static 'img/project-placeholder9.avif' %}"
+                    alt="Imagen proyecto"
+                    class="img-redonda"
+                  />
+                </figure>
+              </div>
+              <div class="column">
+                <div
+                  class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+                >
+                  <p class="titulo-proyecto">Remodelación de oficina</p>
+                  <a class="button is-small is-light">Ver más información</a>
+                </div>
+                <p class="categoria">Remodelación - Oficinas</p>
+                <p class="descripcion">
+                  Se necesita remodelar oficinas para 20 empleados.
+                </p>
+                <div class="tags">
+                  <span class="tag is-light">Las Condes</span>
+                  <span class="tag is-light">10/05/2025</span>
+                </div>
+                <div class="has-text-right">
+                  <a class="button is-small is-dark"
+                    >Contactar <i class="fas fa-phone ml-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="column is-6">
+        <div class="card-proyecto">
+          <div class="card-content">
+            <div class="columns is-vcentered is-mobile">
+              <div class="column is-narrow">
+                <figure class="image is-96x96">
+                  <img
+                    src="{% static 'img/project-placeholder8.avif' %}"
+                    alt="Imagen proyecto"
+                    class="img-redonda"
+                  />
+                </figure>
+              </div>
+              <div class="column">
+                <div
+                  class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+                >
+                  <p class="titulo-proyecto">Instalación eléctrica</p>
+                  <a class="button is-small is-light">Ver más información</a>
+                </div>
+                <p class="categoria">Electricidad - Tableros</p>
+                <p class="descripcion">
+                  Instalación completa en galpón industrial.
+                </p>
+                <div class="tags">
+                  <span class="tag is-light">Renca</span>
+                  <span class="tag is-light">08/05/2025</span>
+                </div>
+                <div class="has-text-right">
+                  <a class="button is-small is-dark"
+                    >Contactar <i class="fas fa-phone ml-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="column is-6">
+        <div class="card-proyecto">
+          <div class="card-content">
+            <div class="columns is-vcentered is-mobile">
+              <div class="column is-narrow">
+                <figure class="image is-96x96">
+                  <img
+                    src="{% static 'img/project-placeholder7.png' %}"
+                    alt="Imagen proyecto"
+                    class="img-redonda"
+                  />
+                </figure>
+              </div>
+              <div class="column">
+                <div
+                  class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+                >
+                  <p class="titulo-proyecto">Construcción de terraza</p>
+                  <a class="button is-small is-light">Ver más información</a>
+                </div>
+                <p class="categoria">Construcción - Vivienda</p>
+                <p class="descripcion">
+                  Ampliación exterior con materiales resistentes al clima.
+                </p>
+                <div class="tags">
+                  <span class="tag is-light">Providencia</span>
+                  <span class="tag is-light">06/05/2025</span>
+                </div>
+                <div class="has-text-right">
+                  <a class="button is-small is-dark"
+                    >Contactar <i class="fas fa-phone ml-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section pt-0">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Proyectos</h2>
+    <p class="subtitle is-6 has-text-centered mb-4">
+      Manténgase actualizado con los proyectos más nuevos
+    </p>
+
+    <div class="columns is-multiline">
+      <!-- Tarjeta 1 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/project-placeholder6.avif' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">Título del proyecto</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">
+                Categoría - Subcategoría
+              </p>
+              <p class="is-size-7 mb-2">Texto de descripción breve</p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">Ubicación</span>
+                <span class="tag is-light is-small">Fecha de publicación</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/project-placeholder5.webp' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">Remodelación local</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">
+                Remodelación - Comercial
+              </p>
+              <p class="is-size-7 mb-2">
+                Renovación interior de local comercial en centro.
+              </p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">Santiago</span>
+                <span class="tag is-light is-small">12/05/2025</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/project-placeholder4.jpg' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">Instalación eléctrica</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">
+                Electricidad - Tableros
+              </p>
+              <p class="is-size-7 mb-2">
+                Instalación completa en bodega industrial.
+              </p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">Pudahuel</span>
+                <span class="tag is-light is-small">10/05/2025</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/project-placeholder3.jpg' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">Construcción terraza</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">
+                Construcción - Exterior
+              </p>
+              <p class="is-size-7 mb-2">
+                Ampliación en segundo piso con acceso directo.
+              </p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">Providencia</span>
+                <span class="tag is-light is-small">08/05/2025</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/project-placeholder2.jpg' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">Reparación sanitaria</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">Gasfitería - Fugas</p>
+              <p class="is-size-7 mb-2">
+                Detección y reparación de filtración en baño.
+              </p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">La Florida</span>
+                <span class="tag is-light is-small">06/05/2025</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/project-placeholder.webp' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">Ampliación cocina</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">Remodelación - Hogar</p>
+              <p class="is-size-7 mb-2">
+                Se requiere ampliación e instalación de muebles.
+              </p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">Maipú</span>
+                <span class="tag is-light is-small">05/05/2025</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paginación -->
+    <nav class="pagination is-centered mt-4" role="navigation">
+      <a class="pagination-previous" title="Anterior">←</a>
+      <a class="pagination-next" title="Siguiente">→</a>
+      <ul class="pagination-list">
+        <li><a class="pagination-link is-current">1</a></li>
+        <li><a class="pagination-link">2</a></li>
+        <li><a class="pagination-link">3</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<!-- Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btnMasFiltros = document.getElementById("btn-mas-filtros");
+    const filtros = document.getElementById("filtros-adicionales");
+    btnMasFiltros.addEventListener("click", () => {
+      filtros.style.display =
+        filtros.style.display === "none" ? "block" : "none";
+    });
+  });
+</script>
+{% endblock %}

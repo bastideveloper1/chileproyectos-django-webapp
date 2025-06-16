@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Apartado - cliente</title>
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/menu_lateral.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/cliente_pregunta_proyecto.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/publicar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/crear-proyecto.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar personalizado -->
+    <section class="navbar-section">
+      <div
+        class="container is-flex is-align-items-center is-justify-content-center is-flex-wrap-wrap py-2"
+      >
+        <!-- Logo a la izquierda -->
+        <div class="navbar-logo mr-6">
+          <figure class="image is-64x64 is-skeleton">
+            <img
+              src="{% static 'img/logo-chileproyectos.png.jpeg' %}"
+              alt="ChileProyectos"
+            />
+          </figure>
+        </div>
+
+        <!-- Enlaces centrados -->
+        <div
+          class="navbar-links is-flex is-align-items-center is-justify-content-center"
+        >
+          <a
+            href="{% url 'home' %}"
+            class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Inicio</a
+          >
+          <a
+            href="{% url 'mis_proyectos_cliente' %}"
+            class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Mis Proyectos</a
+          >
+          <a
+            href=""
+            class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Mi Perfil</a
+          >
+          <a class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Tienda</a
+          >
+        </div>
+      </div>
+    </section>
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer chile-footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <!-- Logo + redes -->
+          <div class="column is-4 has-text-white">
+            <figure class="image is-96x96 mb-3">
+              <img
+                class="is-rounded"
+                src="{% static 'img/logo-chileproyectos.png.jpeg' %}"
+                alt="Logo ChileProyectos"
+              />
+            </figure>
+            <div class="social-icons mt-2">
+              <a href="#" class="icon has-text-white mx-1"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="icon has-text-white mx-1"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="icon has-text-white mx-1"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="#" class="icon has-text-white mx-1"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Menú + contacto -->
+          <div class="column is-8 has-text-white">
+            <div class="columns is-multiline">
+              <!-- Navegación -->
+              <div class="column is-4">
+                <p class="has-text-weight-semibold">Tema</p>
+                <ul>
+                  <li><a href="#" class="has-text-white">Inicio</a></li>
+                  <li><a href="#" class="has-text-white">Mis Proyectos</a></li>
+                  <li><a href="#" class="has-text-white">Contacto</a></li>
+                </ul>
+              </div>
+
+              <!-- Información de contacto -->
+              <div class="column is-8">
+                <p class="has-text-weight-semibold">Contacto</p>
+                <p class="mb-1">Correo: contacto@chileproyectos.cl</p>
+                <p>Teléfono: +56 9 5009 2733</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Créditos -->
+          <div class="column is-12 has-text-centered has-text-white mt-4">
+            <p>Desarrollado por Macroactiva SpA - Derechos Reservados 2025</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const currentPath = window.location.pathname;
+        const menuLinks = document.querySelectorAll(".menu-lateral a");
+
+        menuLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+
+          // Validación segura (evita # y links vacíos)
+          if (href && href !== "#") {
+            // Crear un <a> temporal para extraer solo pathname
+            const tempLink = document.createElement("a");
+            tempLink.href = href;
+
+            // Comparar solo pathname para evitar confusiones con dominio
+            const hrefPath = tempLink.pathname;
+
+            // Si el path actual contiene el del link (pero no es solo "/")
+            if (hrefPath !== "/" && currentPath.includes(hrefPath)) {
+              link.classList.add("is-active");
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

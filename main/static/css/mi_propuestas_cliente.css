@@ -1,0 +1,62 @@
+/* =============================
+   Estilo base del body
+   Define fondo blanco para todo el sitio
+============================= */
+body {
+  background-color: white !important; /* Fuerza fondo blanco, sobreescribiendo otros estilos */
+}
+
+
+/* =============================
+    Estilo del formulario principal de propuestas
+============================= */
+.form-wrapperPropuesta {
+  max-width: 95%; /* El formulario ocupa hasta el 95% del ancho de pantalla */
+  margin: 1rem auto; /* Margen superior/inferior de 1rem y centrado horizontal */
+  padding: 2rem; /* Espaciado interno para el contenido */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del formulario */
+  overflow: visible; /* Permite que el contenido sobresalga si es necesario */
+}
+
+
+/* =============================
+    Contenedor de tabla estilizado
+   Usado para mostrar listado de propuestas
+============================= */
+.table-containerPropuesta {
+  overflow-x: auto; /* Scroll horizontal si la tabla es ancha */
+  background-color: white; /* Fondo blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); /* Sombra sutil */
+  padding: 1.5rem; /* Espaciado interno */
+  border: 1px solid #eaeaea; /* Borde gris claro */
+}
+
+
+/* =============================
+    Colores por estado de propuesta
+============================= */
+
+/* Estado: No presentado (amarillo) */
+.color-no_presentado {
+  color: #ffdd57 !important;
+}
+
+/* Estado: Aceptado (verde) */
+.color-aceptado {
+  color: #48c774 !important;
+}
+
+/* Estado: Cancelado (rojo) */
+.color-cancelado {
+  color: #f14668 !important;
+}
+
+
+/* =============================
+  Espaciado entre ícono y texto en botones
+============================= */
+a.button i {
+  margin-right: 0.4rem; /* Separación entre ícono y texto en los botones */
+}

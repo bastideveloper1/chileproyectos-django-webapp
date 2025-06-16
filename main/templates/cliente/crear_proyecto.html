@@ -1,0 +1,187 @@
+{% extends 'base/base_cliente_proyectoCrear.html' %}
+{% block content %}  
+{% load static %}
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-3 has-text-weight-bold has-text-centered">
+      Crea tu Proyecto
+    </h2>
+
+    <div class="formulario-box box p-5">
+      <form action="{% url 'publicar_proyecto' %}" method="get">
+        <!-- Fila 1: Nombre y teléfono -->
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Nombre del proyecto</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Ej: Ampliación de segundo piso"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field">
+              <label class="label">Teléfono de contacto</label>
+              <div class="control is-flex">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Ej: +56 9 1234 5678"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fila 2: Categoría - Subcategoría -->
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Categoría</label>
+              <div class="select is-fullwidth">
+                <select>
+                  <option>Arquitectura</option>
+                  <option>Construcción</option>
+                  <option>Sanitarias</option>
+                  <option>Electricidad</option>
+                  <option>Gasfitería</option>
+                  <option>Aire Acondicionado</option>
+                  <option>Mueblería</option>
+                  <option>Servicios</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field">
+              <label class="label">Subcategoría</label>
+              <div class="select is-fullwidth">
+                <select>
+                  <option>Remodelación</option>
+                  <option>Exterior</option>
+                  <option>Interior</option>
+                  <option>Iluminación</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fila 3: Archivos y especificaciones -->
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Subir Planos</label>
+              <div class="file has-name is-boxed">
+                <label class="file-label">
+                  <input
+                    class="file-input"
+                    type="file"
+                    accept=".pdf,.jpeg,.png"
+                  />
+                  <span class="file-cta">
+                    <span class="file-icon"><i class="fas fa-upload"></i></span>
+                    <span class="file-label">Elegir archivo…</span>
+                  </span>
+                </label>
+              </div>
+              <p class="help is-size-7">Formatos permitidos: PDF, JPEG, PNG</p>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="field">
+              <label class="label">Especificaciones técnicas</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Ej: Materiales, planos, medidas"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fila 4: Descripción -->
+        <div class="field">
+          <label class="label">Descripción del proyecto</label>
+          <div class="control">
+            <textarea
+              class="textarea"
+              placeholder="Describe tu proyecto detalladamente"
+              style="resize: none; max-height: 150px; overflow: auto"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Fila 5: Descripción previa + ubicación -->
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Descripción previa</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Breve resumen" />
+              </div>
+              <p class="help is-size-7">Debe ser clara y resumida.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="field">
+              <label class="label">Ubicación</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Ej: Santiago, Región Metropolitana"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fila 6: Estado del proyecto -->
+        <div class="columns">
+          <div class="column is-half">
+            <div class="field">
+              <label class="label">Estado del proyecto</label>
+              <div class="select is-fullwidth">
+                <select>
+                  <option>Planeado</option>
+                  <option>En progreso</option>
+                  <option>Finalizado</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fila 7: Fotos -->
+        <div class="field">
+          <label class="label">Fotos del estado actual</label>
+          <div class="control">
+            <input class="input" type="file" multiple />
+          </div>
+          <p class="help is-size-7">Puedes subir varias imágenes</p>
+        </div>
+
+        <!-- Botón -->
+        <div class="field mt-4">
+          <button class="button is-link is-fullwidth">
+            <span class="icon"><i class="fas fa-plus-circle"></i></span>
+            <span>Crear proyecto</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

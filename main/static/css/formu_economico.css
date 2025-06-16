@@ -1,0 +1,87 @@
+/* ==========================
+  Layout General
+========================== */
+
+/* Contenedor principal del layout de la página */
+.layout-wrapper {
+  display: flex;                  /* Distribuye en filas (útil para layouts con sidebar + contenido) */
+  min-height: 100vh;             /* Ocupa al menos toda la altura visible del navegador */
+  overflow: hidden;              /* Oculta cualquier contenido que se desborde */
+}
+
+
+/* ==========================
+    Área Principal de Contenido
+========================== */
+
+/* Sección que contiene el contenido principal, como formularios */
+.main-content {
+  flex: 1;                        /* Ocupa el espacio restante si hay un sidebar */
+  overflow-y: auto;              /* Permite scroll vertical si el contenido excede */
+  padding: 2rem;                 /* Espaciado interno */
+  background-color: white;       /* Fondo blanco para contraste */
+}
+
+
+/* ==========================
+    Formulario Estilizado
+========================== */
+
+/* Contenedor visual del formulario */
+.form-wrapper {
+  max-width: 700px;              /* Ancho máximo centrado */
+  margin: 1rem auto;             /* Centrado con margen superior e inferior */
+  background-color: #ffffffe3;   /* Fondo blanco con opacidad ligera */
+  padding: 2rem;                 /* Espaciado interno */
+  border-radius: 10px;           /* Bordes redondeados */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+  overflow: visible;             /* Permite que los elementos hijos sobresalgan si es necesario */
+}
+
+
+/* ==========================
+    Campos Personalizados
+========================== */
+
+/* Input personalizado */
+.custom-input {
+  background-color: #fcf7f7;     /* Fondo suave grisáceo */
+  border: 1px solid #444;        /* Borde gris oscuro */
+  color: #000;                   /* Texto negro */
+  transition: box-shadow 0.3s ease; /* Transición suave en el enfoque */
+}
+
+/* Estilo cuando el input está enfocado */
+.custom-input:focus {
+  box-shadow: 0 0 5px #0055aa;   /* Efecto de luz azul */
+  border-color: #0055aa;         /* Borde azul más destacado */
+}
+
+
+/* ==========================
+    Botones Personalizados
+========================== */
+
+/* Botón de cancelar con estilo rojo */
+.button.is-cancelar {
+  background-color: #d32f2f;     
+  color: white;                  /* Texto blanco */
+  border: none;                  /* Sin borde */
+}
+
+/* Hover del botón de cancelar */
+.button.is-cancelar:hover {
+  background-color: #a72828;     
+}
+
+/* Botón principal con color institucional */
+.button.is-primary {
+  background-color: #0055aa;    
+  color: white;                  /* Texto blanco */
+  border: none;                  /* Sin borde */
+}
+
+/* Hover del botón principal */
+.button.is-primary:hover {
+  background-color: #003f7f;     /* Azul más oscuro al pasar el cursor */
+}

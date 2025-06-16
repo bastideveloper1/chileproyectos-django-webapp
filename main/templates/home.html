@@ -1,0 +1,382 @@
+{% extends 'base/base_principal.html' %} 
+{% block content %}  
+{% load static %}
+<!-- Hero principal debajo del navbar -->
+
+<section class="hero is-medium hero-chileproyectos">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column">
+        <h2 class="title has-text-centered hero-title">
+          <span class="azul">Bienvenido</span>
+
+          <span class="azul">a</span>
+
+          <span class="rojo">ChileProyectos</span>
+        </h2>
+        <p class="subtitle is-vcentered hero-subtitle has-text-weight-semibold">
+          Encuentra o publica proyectos de construcción con seguridad y
+          confianza
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hero segundo  debajo del primero-->
+<section class="section has-text-centered que-buscas">
+  <div class="container">
+    <h2 class="title is-2 has-text-black">¿QUÉ BUSCAS?</h2>
+    <p class="subtitle is-3 has-text-weight-semibold mb-5">
+      ¿Eres cliente o empresa? Elige una opción para comenzar.
+    </p>
+
+    <!-- Botones Cliente / Empresa -->
+    <div class="buttons is-centered mb-4">
+      <button class="button toggle-button" id="btn-cliente">CLIENTE</button>
+      <button class="button toggle-button" id="btn-empresa">EMPRESA</button>
+    </div>
+
+    <!-- Filtros -->
+    <div class="columns is-centered">
+      <div class="column is-narrow">
+        <div class="select is-medium">
+          <select>
+            <option disabled selected>Región</option>
+            <option>Región de Arica y Parinacota</option>
+            <option>Región de Tarapacá</option>
+            <option>Región de Antofagasta</option>
+            <option>Región de Atacama</option>
+            <option>Región de Coquimbo</option>
+            <option>Región de Valparaíso</option>
+            <option>Región Metropolitana de Santiago</option>
+            <option>Región del Libertador General Bernardo O'Higgins</option>
+            <option>Región del Maule</option>
+            <option>Región de Ñuble</option>
+            <option>Región del Biobío</option>
+            <option>Región de La Araucanía</option>
+            <option>Región de Los Ríos</option>
+            <option>Región de Los Lagos</option>
+            <option>Región de Aysén del General Carlos Ibáñez del Campo</option>
+            <option>Región de Magallanes y de la Antártica Chilena</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="column is-narrow">
+        <div class="select is-medium">
+          <select>
+            <option disabled selected>Categoría</option>
+            <option>Arquitectura</option>
+            <option>Construcción</option>
+            <option>Sanitarias</option>
+            <option>Electricidad</option>
+            <option>Gasfitería</option>
+            <option>Aire Acondicionado</option>
+            <option>Mueblería</option>
+            <option>Servicios</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="column is-narrow">
+        <a href="/buscar/cliente/" class="button buscar-btn" id="btn-buscar">
+          Buscar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección 3: Categorías -->
+
+<!-- Sección Título + Subtítulo (sin fondo) -->
+<section class="section has-text-centered">
+  <div class="container">
+    <h1 class="title is-2 has-text-black">Categorías de Servicios</h1>
+    <p class="subtitle is-5 has-text-weight-semibold has-text-grey-dark mb-5">
+      Revisa nuestros Proyectos Publicados por categorías
+    </p>
+  </div>
+</section>
+
+<!-- Sección Categorías con imagen de fondo -->
+<section class="section categorias-servicios has-text-centered">
+  <div class="container">
+    <!-- Tarjetas -->
+    <div class="columns is-multiline is-centered">
+      <!-- Arquitectura -->
+      <div class="column is-3-desktop is-4-tablet is-6-mobile">
+        <div class="box categoria-box has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-drafting-compass fa-2x"></i>
+          </span>
+          <p class="categoria-text">Arquitectura</p>
+        </div>
+      </div>
+
+      <!-- Construcción -->
+      <div class="column is-3-desktop is-4-tablet is-6-mobile">
+        <div class="box categoria-box has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-hard-hat fa-2x"></i>
+          </span>
+          <p class="categoria-text">Construcción</p>
+        </div>
+      </div>
+
+      <!-- Sanitarias -->
+      <div class="column is-3-desktop is-4-tablet is-6-mobile">
+        <div class="box categoria-box has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-toilet fa-2x"></i>
+          </span>
+          <p class="categoria-text">Sanitarias</p>
+        </div>
+      </div>
+
+      <!-- Electricidad -->
+      <div class="column is-3-desktop is-4-tablet is-6-mobile">
+        <div class="box categoria-box has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-bolt fa-2x"></i>
+          </span>
+          <p class="categoria-text">Electricidad</p>
+        </div>
+      </div>
+
+      <!-- Gasfitería -->
+      <div class="column is-3-desktop is-4-tablet is-6-mobile">
+        <div class="box categoria-box has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-wrench fa-2x"></i>
+          </span>
+          <p class="categoria-text">Gasfitería</p>
+        </div>
+      </div>
+
+      <!-- Aire Acondicionado -->
+      <div class="column is-3-desktop is-4-tablet is-6-mobile">
+        <div class="box categoria-box has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-fan fa-2x"></i>
+          </span>
+          <p class="categoria-text">Aire Acondicionado</p>
+        </div>
+      </div>
+
+      <!-- Mueblería -->
+      <div class="column is-3-desktop is-4-tablet is-6-mobile">
+        <div class="box categoria-box has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-couch fa-2x"></i>
+          </span>
+          <p class="categoria-text">Mueblería</p>
+        </div>
+      </div>
+
+      <!-- Servicios -->
+      <div class="column is-3-desktop is-4-tablet is-6-mobile">
+        <div class="box categoria-box has-text-centered">
+          <span class="icon is-large">
+            <i class="fas fa-briefcase fa-2x"></i>
+          </span>
+          <p class="categoria-text">Servicios</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón -->
+    <div class="mt-4">
+      <button class="button is-light">Más Categorías</button>
+    </div>
+  </div>
+</section>
+
+<!-- Sección 4: ¿Quiénes Somos? -->
+
+<!-- Sección 4: ¿Quiénes Somos? -->
+<section class="section quienes-somos">
+  <div class="container has-text-centered">
+    <div class="box-quienes-contenedor mx-auto" style="max-width: 850px">
+      <h2 class="title is-2 has-text-black mb-6">¿Quiénes Somos?</h2>
+      <p class="subtitle is-4 has-text-weight-semibold">
+        Chile Proyecto es una plataforma web (marketplace) que conecta a
+        propietarios y empresas del sector construcción en Chile. A través de
+        nuestra plataforma, los profesionales podrán acceder a proyectos
+        verificados y contratar servicios para diversas obras.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Sección 5: Objetivos -->
+<section class="section objetivos-chileproyectos">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <!-- Título con fondo blanco -->
+      <div class="column is-5">
+        <h2 class="title is-2 has-text-black objetivos-fondo">
+          Objetivos de<br />ChileProyectos
+        </h2>
+      </div>
+
+      <!-- Lista con fondo blanco -->
+      <div class="column is-7">
+        <div class="objetivos-fondo">
+          <ul class="has-text-black is-size-5 has-text-weight-semibold mb-0">
+            <li>
+              • Facilitar la conexión entre clientes y empresas del sector
+              construcción.
+            </li>
+            <li>
+              • Ofrecer un espacio seguro y verificado para publicación de
+              proyectos.
+            </li>
+            <li>
+              • Implementar un modelo de membresía y compra de créditos para
+              acceder a datos de contacto.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección 5: Comentarios -->
+<!-- Sección Título + Subtítulo (sin fondo) -->
+<section class="section has-text-centered">
+  <div class="container">
+    <h1 class="title is-2 has-text-black">Comentarios</h1>
+  </div>
+</section>
+<section class="section comentarios-section has-text-centered">
+  <div class="container">
+    <div class="columns is-multiline is-centered mt-5">
+      <!-- Comentario 1 -->
+      <div class="column is-4-desktop is-6-tablet">
+        <div class="box comentario-box">
+          <p class="is-italic">
+            "Gracias a ChileProyectos encontré fácilmente una empresa para
+            remodelar mi local."
+          </p>
+          <div class="media mt-4 is-align-items-center">
+            <figure class="media-left">
+              <span class="icon is-large has-text-grey-light">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
+                  />
+                </svg>
+              </span>
+            </figure>
+            <div class="media-content has-text-left">
+              <p class="has-text-weight-semibold is-size-6 mb-0">
+                Marcela Ruiz
+              </p>
+              <p class="has-text-grey-light is-size-7">Dueña de negocio</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comentario 2 -->
+      <div class="column is-4-desktop is-6-tablet">
+        <div class="box comentario-box">
+          <p class="is-italic">
+            "Publicar mi proyecto fue rápido y recibí varias ofertas de
+            profesionales certificados."
+          </p>
+          <div class="media mt-4 is-align-items-center">
+            <figure class="media-left">
+              <span class="icon is-large has-text-grey-light">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
+                  />
+                </svg>
+              </span>
+            </figure>
+            <div class="media-content has-text-left">
+              <p class="has-text-weight-semibold is-size-6 mb-0">
+                Carlos Núñez
+              </p>
+              <p class="has-text-grey-light is-size-7">Propietario</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comentario 3 -->
+      <div class="column is-4-desktop is-6-tablet">
+        <div class="box comentario-box">
+          <p class="is-italic">
+            "Me registré como empresa y ya he conseguido varios proyectos desde
+            la plataforma."
+          </p>
+          <div class="media mt-4 is-align-items-center">
+            <figure class="media-left">
+              <span class="icon is-large has-text-grey-light">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
+                  />
+                </svg>
+              </span>
+            </figure>
+            <div class="media-content has-text-left">
+              <p class="has-text-weight-semibold is-size-6 mb-0">
+                Valeria Soto
+              </p>
+              <p class="has-text-grey-light is-size-7">Constructora</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const btnCliente = document.getElementById("btn-cliente");
+  const btnEmpresa = document.getElementById("btn-empresa");
+  const btnBuscar = document.getElementById("btn-buscar");
+
+  btnBuscar.href = "/buscar/cliente/";
+  btnBuscar.textContent = "Buscar";
+
+  btnCliente.classList.add("is-selected");
+
+  btnCliente.addEventListener("click", () => {
+    btnBuscar.href = "/buscar/cliente/";
+    btnCliente.classList.add("is-selected");
+    btnEmpresa.classList.remove("is-selected");
+  });
+
+  btnEmpresa.addEventListener("click", () => {
+    btnBuscar.href = "/buscar/empresa/";
+    btnEmpresa.classList.add("is-selected");
+    btnCliente.classList.remove("is-selected");
+  });
+</script>
+
+{% endblock %}

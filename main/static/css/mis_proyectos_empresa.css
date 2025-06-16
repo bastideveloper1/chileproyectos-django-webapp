@@ -1,0 +1,110 @@
+/* ===============================
+    Estilo Global del Body
+================================= */
+body {
+  background-color: white !important; /* Se fuerza el fondo blanco de toda la página */
+}
+
+
+/* ===============================
+    Contenedor del Formulario
+================================= */
+.form-wrapperProyecto {
+  max-width: 95%;                /* Ocupa hasta el 95% del ancho del contenedor */
+  margin: 1rem auto;             /* Centra el contenedor con margen superior e inferior */
+  padding: 2rem;                 /* Espaciado interno */
+  border-radius: 10px;           /* Bordes redondeados */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra para efecto de profundidad */
+  overflow: visible;            /* Permite que contenido interno sobresalga si es necesario */
+}
+
+
+/* ===============================
+   📋Estilo del Contenedor de Tabla
+================================= */
+.table-container {
+  overflow-x: auto;              /* Scroll horizontal si la tabla se desborda */
+  background-color: white;       /* Fondo blanco */
+  border-radius: 8px;            /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); /* Sombra sutil */
+  padding: 1.5rem;               /* Espaciado interno */
+  border: 1px solid #eaeaea;     /* Borde gris claro */
+}
+
+
+/* ===============================
+    Botón Azul - Ver Detalle
+================================= */
+.button.is-link {
+  background-color: #0055aa;     
+  color: white;                  /* Texto blanco */
+  border: none;                  /* Sin borde */
+}
+.button.is-link:hover {
+  background-color: #003f7f;     /* Azul más oscuro al hacer hover */
+}
+
+
+/* ===============================
+    Botón Rojo - Enviar Propuesta
+================================= */
+.button.is-danger {
+  background-color: #d32f2f;     
+  color: white;                  /* Texto blanco */
+  border: none;                  /* Sin borde */
+}
+.button.is-danger:hover {
+  background-color: #a72828;     /* Rojo más oscuro al hacer hover */
+}
+
+
+/* ===============================
+    Botón Desactivado
+================================= */
+.button.is-disabled {
+  opacity: 0.5;                  /* Botón con opacidad reducida */
+  pointer-events: none;         /* Inactiva cualquier clic en el botón */
+}
+
+
+/* ===============================
+    Colores Personalizados de Estado
+================================= */
+.color-pendiente {
+  color: #ffdd57 !important;     /* Amarillo para estado pendiente */
+}
+
+.color-no-responde {
+  color: #7a7a7a !important;     /* Gris para estado sin respuesta */
+}
+
+.color-contactado {
+  color: #48c774 !important;     /* Verde para estado contactado */
+}
+
+.color-anulado {
+  color: #f14668 !important;     /* Rojo para estado anulado */
+}
+
+
+/* ===============================
+    Select con Espacio para Íconos
+================================= */
+.select select {
+  padding-left: 2em;             /* Espacio a la izquierda para dejar lugar a íconos */
+}
+
+
+/* ===============================
+    Paginación Activa
+================================= */
+.pagination .pagination-link.is-current {
+  background-color: #3273dc;     /* Fondo azul para la página activa */
+  color: white;                  /* Texto blanco */
+  border-color: transparent;     /* Borde invisible */
+}
+
+/* Duplicado para asegurar consistencia */
+.select select {
+  padding-left: 2em;
+}

@@ -1,0 +1,154 @@
+{% extends 'base/base_empresa.html' %} 
+{% block content %}  
+{% load static %}
+
+<section class="column is-10 p-5 mb-4">
+  <section class="section">
+    <div class="container">
+      <h1 class="title is-3 has-text-centered has-text-black">
+        Detalle del Proyecto
+      </h1>
+
+      <div class="section">
+        <div class="columns is-multiline">
+          <!-- INFO GENERAL -->
+          <div class="column is-half">
+            <h2 class="subtitle is-5">
+              <i class="fas fa-info-circle icon-section"></i> Información
+              General
+            </h2>
+            <div class="info-block">
+              <p><strong>Nombre del Proyecto:</strong> Remodelación Casa</p>
+              <p><strong>Categoría:</strong> Construcción</p>
+              <p><strong>Subcategoría:</strong> Remodelación</p>
+              <p><strong>Nombre del Cliente:</strong> Juan Pérez</p>
+              <p><strong>Teléfono de Contacto:</strong> +56 9 1234 5678</p>
+            </div>
+          </div>
+
+          <!-- ARCHIVOS -->
+          <div class="column is-half">
+            <h2 class="subtitle is-5">
+              <i class="fas fa-file-download icon-section"></i> Archivos
+              Adjuntos
+            </h2>
+            <div class="info-block file-links">
+              <p>
+                <strong>Planos:</strong>
+                <a class="button is-link is-small" href="#">Descargar</a>
+              </p>
+              <p>
+                <strong>Especificaciones Técnicas:</strong>
+                <a class="button is-link is-small" href="#">Descargar</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- DESCRIPCIÓN -->
+          <div class="column is-full">
+            <h2 class="subtitle is-5">
+              <i class="fas fa-align-left icon-section"></i> Descripción del
+              Proyecto
+            </h2>
+            <div class="info-block">
+              <textarea class="textarea descripcion-readonly" readonly>
+Este proyecto contempla la remodelación integral de una vivienda ubicada en la comuna de Buin, Región Metropolitana. Las labores incluyen la renovación completa del sistema eléctrico, instalación de nuevas cañerías de agua potable, ampliación de la cocina, remodelación de baños, cambio de revestimientos interiores y exteriores, y la implementación de soluciones de eficiencia energética como ventanas termopanel y aislamiento térmico en muros. 
+
+Además, se considera la construcción de una terraza techada en el patio trasero, mejoramiento del jardín frontal y la instalación de un sistema de iluminación exterior. Todo el trabajo será ejecutado cumpliendo con las normativas vigentes y los más altos estándares de calidad en construcción.
+    </textarea
+              >
+            </div>
+          </div>
+
+          <!-- UBICACIÓN -->
+          <div class="column is-full">
+            <h2 class="subtitle is-5">
+              <i class="fas fa-map-marker-alt icon-section"></i> Ubicación
+            </h2>
+            <div class="info-block">Región Metropolitana, Buin</div>
+          </div>
+
+          <!-- FOTOS -->
+          <div class="column is-full">
+            <h2 class="subtitle is-5">
+              <i class="fas fa-images icon-section"></i> Fotos del Estado Actual
+            </h2>
+            <div class="imagenes-grid">
+              <div class="image-container">
+                <img
+                  src="{% static 'img/detalle_compra1.jpg' %}"
+                  alt="Foto 1"
+                  class="zoomable-image"
+                />
+                <a
+                  class="download-btn"
+                  href="{% static 'img/detalle_compra1.jpg' %}"
+                  download
+                  >Descargar</a
+                >
+              </div>
+              <div class="image-container">
+                <img
+                  src="{% static 'img/detalle_compra2.webp' %}"
+                  alt="Foto 2"
+                  class="zoomable-image"
+                />
+                <a
+                  class="download-btn"
+                  href="{% static 'img/detalle_compra2.webp' %}"
+                  download
+                  >Descargar</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- VOLVER -->
+          <div class="column is-full has-text-right mt-4">
+            <a href="{% url 'mis_proyectos' %}" class="button is-danger">
+              <i class="fas fa-arrow-left mr-1"></i> Volver
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- MODAL ZOOM IMAGEN -->
+<div class="modal" id="image-modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <p class="image">
+      <img id="modal-img" src="" alt="Imagen Ampliada" />
+    </p>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<!-- SCRIPT -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".zoomable-image");
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-img");
+    const modalClose = modal.querySelector(".modal-close");
+    const modalBg = modal.querySelector(".modal-background");
+
+    images.forEach((img) => {
+      img.addEventListener("click", () => {
+        modal.classList.add("is-active");
+        modalImg.src = img.src;
+      });
+    });
+
+    modalClose.addEventListener("click", () =>
+      modal.classList.remove("is-active")
+    );
+    modalBg.addEventListener("click", () =>
+      modal.classList.remove("is-active")
+    );
+  });
+</script>
+
+{% endblock %}

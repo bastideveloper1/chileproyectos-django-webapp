@@ -1,0 +1,558 @@
+{% extends 'base/base_principal.html' %} 
+{% block content %}  
+{% load static %}
+
+<!-- Título -->
+<section class="section has-text-centered">
+  <div class="container">
+    <h1 class="title is-3 has-text-weight-bold">Busca una Empresa</h1>
+    <p class="subtitle is-6">
+      Explora empresas registradas que ofrecen servicios de construcción y
+      remodelación.
+    </p>
+  </div>
+</section>
+<!-- Filtros -->
+<section class="section">
+  <div class="container has-text-centered">
+    <div
+      class="box"
+      style="max-width: 1000px; margin: 0 auto 2rem auto; padding: 2rem 3rem"
+    >
+      <div class="columns is-multiline is-centered is-vcentered">
+        <div class="column is-narrow">
+          <div class="select is-medium">
+            <select>
+              <option>Región</option>
+              <option>Metropolitana</option>
+              <option>Valparaíso</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="column is-narrow">
+          <div class="select is-medium">
+            <select>
+              <option>Categoría</option>
+              <option>Electricidad</option>
+              <option>Construcción</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="column is-narrow">
+          <button class="button is-medium is-light" id="btn-mas-filtros">
+            <span class="icon is-small"><i class="fas fa-filter"></i></span>
+            <span>Más Filtros</span>
+          </button>
+        </div>
+
+        <div class="column is-narrow">
+          <button class="button is-medium is-dark">
+            <span class="icon is-small">
+              <i class="fas fa-search"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filtros adicionales -->
+      <div id="filtros-adicionales" style="display: none">
+        <div class="columns is-multiline is-centered">
+          <div class="column is-narrow">
+            <div class="select is-medium">
+              <select>
+                <option>Comuna</option>
+                <option>Santiago</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="column is-narrow">
+            <div class="select is-medium">
+              <select>
+                <option>Subcategoría</option>
+                <option>Tableros de electricidad</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="column is-narrow">
+            <label class="label is-small">Precios</label>
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <input
+                class="slider is-fullwidth is-small"
+                step="10000"
+                min="0"
+                max="12000000"
+                value="6000000"
+                type="range"
+                id="precioRange"
+              />
+              <div class="is-size-7 mt-2">$0 - $12.000.000</div>
+            </div>
+          </div>
+
+          <div class="column is-narrow">
+            <button class="button is-medium is-dark">Aplicar Filtro</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Listado de empresas (reutilizando tarjetas) -->
+<section class="section proyectos-destacados">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Empresas destacados</h2>
+    <p class="subtitle is-6 has-text-centered mb-5">
+      Las primeras son las destacadas
+    </p>
+    <div class="columns is-multiline">
+      <div class="column is-6">
+        <div class="card-proyecto">
+          <div class="card-content">
+            <div class="columns is-vcentered is-mobile">
+              <div class="column is-narrow">
+                <figure class="image is-96x96">
+                  <img
+                    src="{% static 'img/empresa-constructora1.webp' %}"
+                    class="img-redonda"
+                    alt="Constructora Alfa"
+                  />
+                </figure>
+              </div>
+              <div class="column">
+                <div
+                  class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+                >
+                  <p class="titulo-proyecto">Constructora Alfa</p>
+                  <a class="button is-small is-light">Ver más información</a>
+                </div>
+                <p class="categoria">Construcción - Viviendas</p>
+                <p class="descripcion">
+                  Empresa especializada en obras residenciales y remodelaciones.
+                </p>
+                <div class="tags">
+                  <span class="tag is-light">Maipú</span>
+                  <span class="tag is-light">+10 años experiencia</span>
+                </div>
+                <div class="has-text-right">
+                  <a class="button is-small is-dark"
+                    >Contactar <i class="fas fa-phone ml-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-6">
+        <div class="card-proyecto">
+          <div class="card-content">
+            <div class="columns is-vcentered is-mobile">
+              <div class="column is-narrow">
+                <figure class="image is-96x96">
+                  <img
+                    src="{% static 'img/empresa-constructora2.jpg' %}"
+                    class="img-redonda"
+                    alt="Remodelaciones Centro"
+                  />
+                </figure>
+              </div>
+              <div class="column">
+                <div
+                  class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+                >
+                  <p class="titulo-proyecto">Remodelaciones Centro</p>
+                  <a class="button is-small is-light">Ver más información</a>
+                </div>
+                <p class="categoria">Remodelación - Oficinas</p>
+                <p class="descripcion">
+                  Soluciones de diseño interior para espacios laborales
+                  modernos.
+                </p>
+                <div class="tags">
+                  <span class="tag is-light">Santiago Centro</span>
+                  <span class="tag is-light">Certificada</span>
+                </div>
+                <div class="has-text-right">
+                  <a class="button is-small is-dark"
+                    >Contactar <i class="fas fa-phone ml-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta Empresa 5 -->
+      <div class="column is-6">
+        <div class="card-proyecto">
+          <div class="card-content">
+            <div class="columns is-vcentered is-mobile">
+              <div class="column is-narrow">
+                <figure class="image is-96x96">
+                  <img
+                    src="{% static 'img/empresa-constructora3.jpg' %}"
+                    alt="Logo Empresa"
+                    class="img-redonda"
+                  />
+                </figure>
+              </div>
+              <div class="column">
+                <div
+                  class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+                >
+                  <p class="titulo-proyecto">Construcciones Martínez</p>
+                  <a class="button is-small is-light">Ver más información</a>
+                </div>
+                <p class="categoria">
+                  Especialidad: Obras menores - Remodelaciones
+                </p>
+                <p class="descripcion">
+                  Más de 10 años construyendo espacios seguros y modernos.
+                </p>
+                <div class="tags">
+                  <span class="tag is-light">Maipú</span>
+                  <span class="tag is-light">Desde 2012</span>
+                </div>
+                <div class="has-text-right">
+                  <a class="button is-small is-dark"
+                    >Contactar <i class="fas fa-phone ml-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta Empresa 6 -->
+      <div class="column is-6">
+        <div class="card-proyecto">
+          <div class="card-content">
+            <div class="columns is-vcentered is-mobile">
+              <div class="column is-narrow">
+                <figure class="image is-96x96">
+                  <img
+                    src="{% static 'img/empresa-constructora4.webp' %}"
+                    alt="Logo Empresa"
+                    class="img-redonda"
+                  />
+                </figure>
+              </div>
+              <div class="column">
+                <div
+                  class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+                >
+                  <p class="titulo-proyecto">Energía y Hogar SPA</p>
+                  <a class="button is-small is-light">Ver más información</a>
+                </div>
+                <p class="categoria">
+                  Especialidad: Electricidad - Energía solar
+                </p>
+                <p class="descripcion">
+                  Soluciones eléctricas eficientes para empresas y hogares.
+                </p>
+                <div class="tags">
+                  <span class="tag is-light">Ñuñoa</span>
+                  <span class="tag is-light">Desde 2018</span>
+                </div>
+                <div class="has-text-right">
+                  <a class="button is-small is-dark"
+                    >Contactar <i class="fas fa-phone ml-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section pt-0">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Empresas</h2>
+    <p class="subtitle is-6 has-text-centered mb-4">
+      Manténgase actualizado con las empresas
+    </p>
+
+    <div class="columns is-multiline">
+      <!-- Tarjeta 1 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/empresa-constructora5.avif' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">Constructora Andes Sur</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">
+                Construcción - Viviendas
+              </p>
+              <p class="is-size-7 mb-2">
+                Especialistas en casas prefabricadas sustentables.
+              </p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">Rancagua</span>
+                <span class="tag is-light is-small">13/05/2025</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/empresa-constructora6.jpg' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">Electro Ingeniería Spa</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">
+                Electricidad - Instalaciones
+              </p>
+              <p class="is-size-7 mb-2">
+                Montaje de tableros, canalización e iluminación LED industrial.
+              </p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">San Bernardo</span>
+                <span class="tag is-light is-small">11/05/2025</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/empresa-constructora7.avif' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">GasFit Expertos</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">Gasfitería - Fugas</p>
+              <p class="is-size-7 mb-2">
+                Servicios de detección de fugas y reparaciones certificadas.
+              </p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">La Florida</span>
+                <span class="tag is-light is-small">10/05/2025</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/empresa-constructora8.avif' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">Mueblería ProLine</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">
+                Mueblería - Diseño a medida
+              </p>
+              <p class="is-size-7 mb-2">
+                Fabricación de muebles personalizados para oficinas y hogares.
+              </p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">Ñuñoa</span>
+                <span class="tag is-light is-small">09/05/2025</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/empresa-constructora9.png' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">Techos del Sur</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">
+                Construcción - Cubiertas
+              </p>
+              <p class="is-size-7 mb-2">
+                Soluciones impermeables para techumbres y estructuras
+                exteriores.
+              </p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">Puente Alto</span>
+                <span class="tag is-light is-small">08/05/2025</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="column is-6">
+        <div class="box proyecto-normal">
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img
+                  src="{% static 'img/empresa-constructora10.webp' %}"
+                  alt="Imagen proyecto"
+                />
+              </figure>
+            </div>
+            <div class="column">
+              <div
+                class="is-flex is-justify-content-space-between is-align-items-center mb-2"
+              >
+                <p class="has-text-weight-bold mb-1">Sanitaria FullPipe</p>
+                <a class="button is-small is-light"
+                  >Ver más información <i class="fas fa-arrow-right ml-1"></i
+                ></a>
+              </div>
+              <p class="is-size-7 has-text-grey mb-1">
+                Sanitarias - Redes de agua
+              </p>
+              <p class="is-size-7 mb-2">
+                Instalación y mantenimiento de redes sanitarias en edificios.
+              </p>
+              <div class="tags mb-2">
+                <span class="tag is-light is-small">Recoleta</span>
+                <span class="tag is-light is-small">07/05/2025</span>
+              </div>
+              <div class="has-text-right">
+                <a class="button is-small is-outlined is-dark"
+                  >Contactar <i class="fas fa-phone ml-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paginación -->
+    <nav class="pagination is-centered mt-4" role="navigation">
+      <a class="pagination-previous" title="Anterior">←</a>
+      <a class="pagination-next" title="Siguiente">→</a>
+      <ul class="pagination-list">
+        <li><a class="pagination-link is-current">1</a></li>
+        <li><a class="pagination-link">2</a></li>
+        <li><a class="pagination-link">3</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<!-- Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btnMasFiltros = document.getElementById("btn-mas-filtros");
+    const filtros = document.getElementById("filtros-adicionales");
+    btnMasFiltros.addEventListener("click", () => {
+      filtros.style.display =
+        filtros.style.display === "none" ? "block" : "none";
+    });
+  });
+</script>
+{% endblock %}

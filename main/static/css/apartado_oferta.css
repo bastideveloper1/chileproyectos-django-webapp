@@ -1,0 +1,50 @@
+/* Fondo general de la página en blanco */
+body {
+  background-color: white !important;
+}
+
+
+/* ================================================
+    Contenedor principal del formulario de ofertas
+   ================================================ */
+.form-wrapperOfertas {
+  max-width: 95%;               /* Limita el ancho máximo al 95% del contenedor */
+  margin: 1rem auto;            /* Centrado horizontal con separación vertical */
+  padding: 2rem;                /* Espaciado interno para el contenido */
+  border-radius: 10px;          /* Bordes redondeados suaves */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);  /* Sombra para dar profundidad */
+  overflow: visible;           /* Permite que el contenido que sobresale se muestre */
+}
+
+
+/* ===============================================
+    Contenedor de la tabla de ofertas recibidas
+   =============================================== */
+.table-containerOferta {
+  overflow-x: auto;             /* Permite desplazamiento horizontal si es necesario */
+  background-color: white;     /* Fondo blanco para la tabla */
+  border-radius: 8px;          /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);  /* Sombra ligera para resaltar la tabla */
+  padding: 1.5rem;             /* Espaciado interior */
+  border: 1px solid #eaeaea;   /* Borde gris claro para delimitar el contenedor */
+}
+
+
+/* ===========================================
+    Colores asociados a los estados del proyecto
+   =========================================== */
+
+/* Verde: Estado adjudicado (propuesta aceptada) */
+.color-adjudicado {
+  color: #23d160;
+}
+
+/* Rojo: Estado no adjudicado (rechazada) */
+.color-no-adjudicado {
+  color: #ff3860;
+}
+
+/* Azul: Estado en evaluación (pendiente) */
+.color-evaluacion {
+  color: #3273dc;
+}

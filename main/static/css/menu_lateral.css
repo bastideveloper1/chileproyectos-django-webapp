@@ -1,0 +1,76 @@
+/* =============================
+    Contenedor principal del layout horizontal
+   Define una estructura de dos columnas: menú lateral y contenido principal
+============================= */
+.layout-container {
+  display: flex; /* Establece disposición en fila */
+}
+
+/* =============================
+    Menú lateral (sidebar)
+============================= */
+.menu-lateral {
+  width: 220px; /* Ancho fijo del menú lateral */
+  background-color: #a8d1ff; /* Color azul claro para destacar */
+  position: sticky; /* Se mantiene fijo al hacer scroll */
+  top: 50px; /* Separación desde el top (por ejemplo, altura de la navbar) */
+  overflow-y: auto; /* Scroll vertical si el contenido es largo */
+  padding: 1rem 0; /* Espaciado interno arriba y abajo */
+  justify-content: space-between; /* Empuja el logout al final del menú */
+}
+
+/* =============================
+    Estilo base de los enlaces del menú
+============================= */
+.menu-lateral .menu-list li a {
+  display: block; /* El enlace ocupa toda la fila */
+  padding: 23px 25px; /* Espaciado interno amplio */
+  border-radius: 6px; /* Bordes redondeados */
+  text-decoration: none; /* Quita subrayado */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Suaviza efectos hover */
+}
+
+/* =============================
+    Estilo al pasar el mouse sobre enlaces
+============================= */
+.menu-lateral .menu-list li a:hover {
+  background-color: #3288ff; /* Azul más intenso al hacer hover */
+  color: white; /* Texto blanco */
+}
+
+/* =============================
+    Estructura interna del menú lateral
+============================= */
+.menu-lateral-wrapper {
+  display: flex;
+  flex-direction: column; /* Orden en columna */
+  height: 100%; /* Ocupa todo el alto del contenedor */
+  justify-content: space-between; /* Empuja el logout hacia el final */
+}
+
+/* =============================
+    Sección de cierre de sesión
+============================= */
+.logout-section {
+  margin-top: auto; /* Empuja hacia el final */
+  padding: 1rem;
+}
+
+/* =============================
+    Enlace activo del menú lateral
+============================= */
+.menu-lateral a.is-active {
+  background-color: #0066cc; 
+  color: white;
+  border-radius: 5px;
+  font-weight: bold; /* Texto en negrita para destacar */
+}
+
+/* =============================
+    Enlace activo de logout (diseño distinto)
+============================= */
+.logout-section a.is-active {
+  background-color: transparent !important; /* No se resalta */
+  color: #f14668 !important; /* Color rojo claro para destacar logout */
+  font-weight: normal !important; /* No en negrita */
+}

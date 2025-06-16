@@ -1,0 +1,154 @@
+{% extends 'base/base_cliente_proyectoCrear.html' %}
+ {% block content %} 
+  {% load static %} 
+  
+<section class="section_publicar has-text-centered">
+  <h1 class="title is-3">Formulario de publicación<br />de proyectos</h1>
+  <p class="subtitle is-6">
+    Complete los datos a continuación para publicar su proyecto
+  </p>
+</section>
+<section class="section_publicar2 pt-0 pb-0" style="background-color: #666">
+  <div class="container py-5">
+    <div class="columns is-vcentered is-mobile">
+      <div class="column is-narrow">
+        <figure class="image is-96x96 mx-4">
+          <img
+            class="is-rounded"
+            src="{% static 'img/project-placeholder8.avif' %}"
+          />
+        </figure>
+      </div>
+      <div class="column">
+        <h2 class="has-text-white is-size-5 has-text-weight-bold">
+          Detalles del proyecto
+        </h2>
+        <span class="tag is-light is-normal">Ver solo</span>
+        <p class="has-text-white mt-2">Detalles ingresados por el usuario</p>
+      </div>
+      <div class="column is-narrow has-text-right">
+        <a class="button is-normal is-dark" id="abrir-modal">Ver Datos</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section seccion-formulario">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Información del proyecto</h2>
+
+    <form class="form-publicacion">
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <label class="label is-normal"
+              >Fecha de ejecución del proyecto</label
+            >
+            <div class="control">
+              <input class="input is-normal" type="date" />
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="field">
+            <label class="label">Presupuesto estimado ($)</label>
+            <div class="control is-flex">
+              <input
+                class="input mr-2"
+                type="number"
+                placeholder="Ej: 1500000"
+              />
+              <button class="button is-info is-normal">Simular</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label is-normal">Fecha de publicación</label>
+        <div class="control">
+          <input
+            class="input is-normal"
+            type="text"
+            value="Se establece automáticamente a 30 días a partir de hoy"
+            readonly
+          />
+        </div>
+        <p class="help is-size-7">Sólo lectura</p>
+      </div>
+
+      <!-- Botones: Publicar y Guardar -->
+      <div class="field is-grouped is-justify-content-center mt-5">
+        <p class="control">
+          <button type="submit" class="button is-link">
+            <span class="icon"><i class="fas fa-plus-circle"></i></span>
+            <span>Publicar Proyecto</span>
+          </button>
+        </p>
+        <p class="control">
+          <a href="{% url 'mis_proyectos_cliente' %}" class="button is-danger">
+            <span class="icon"><i class="fas fa-save"></i></span>
+            <span>Guardar</span>
+          </a>
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- Modal con datos del proyecto -->
+<div class="modal" id="modal-detalles">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Detalles del proyecto</p>
+      <button class="delete" aria-label="close" id="cerrar-modal"></button>
+    </header>
+    <section class="modal-card-body">
+      <p><strong>Nombre del proyecto:</strong> Remodelación de vivienda</p>
+      <p><strong>Categoría:</strong> Construcción</p>
+      <p><strong>Subcategoría:</strong> Ampliaciones</p>
+      <p><strong>Ubicación:</strong> Puente Alto</p>
+      <p>
+        <strong>Especificaciones técnicas:</strong> Se requieren materiales
+        resistentes a humedad.
+      </p>
+      <p>
+        <strong>Descripción:</strong> Proyecto para ampliar segundo piso con 2
+        habitaciones nuevas.
+      </p>
+      <p><strong>Zona geográfica:</strong> Región Metropolitana</p>
+      <p><strong>Estado actual:</strong> Planificado</p>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-dark" id="cerrar-modal-footer">Cerrar</button>
+    </footer>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("modal-detalles");
+    const abrirModal = document.getElementById("abrir-modal");
+    const cerrarModal = document.getElementById("cerrar-modal");
+    const cerrarModalFooter = document.getElementById("cerrar-modal-footer");
+    const modalBackground = modal.querySelector(".modal-background");
+
+    abrirModal.addEventListener("click", function () {
+      modal.classList.add("is-active");
+    });
+
+    cerrarModal.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+    });
+
+    cerrarModalFooter.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+    });
+
+    modalBackground.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+    });
+  });
+</script>
+
+{% endblock %}

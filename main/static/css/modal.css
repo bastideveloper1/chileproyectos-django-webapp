@@ -1,0 +1,63 @@
+/* ===============================
+    Modal Personalizado
+================================= */
+.custom-modal {
+  border-radius: 12px;     /* Bordes redondeados para dar un estilo moderno */
+  max-width: 480px;        /* Ancho máximo del modal */
+  width: 100%;             /* Ancho completo del contenedor padre */
+  margin: auto;            /* Centra el modal horizontalmente */
+}
+
+
+/* ===============================
+    Contenedor de Opciones de Contacto
+================================= */
+.opciones-contacto {
+  display: flex;              /* Layout tipo flexbox */
+  flex-direction: column;     /* Apila las opciones en columnas */
+  gap: 1rem;                  /* Espacio entre cada opción */
+}
+
+
+/* ===============================
+    Estilo de Cada Opción Individual
+================================= */
+.box-opcion {
+  border: 1px solid #ddd;        /* Borde gris claro */
+  border-radius: 8px;            /* Bordes redondeados */
+  padding: 1rem;                 /* Espaciado interno */
+  display: flex;                 /* Distribuye contenido interno en fila */
+  align-items: flex-start;       /* Alineación superior de los elementos internos */
+  gap: 1rem;                     /* Espacio entre ícono y texto */
+  cursor: pointer;              /* Cursor tipo mano al pasar sobre la caja */
+  transition: background 0.2s ease; /* Transición suave al cambiar de color */
+  background-color: #fff;        /* Fondo blanco por defecto */
+}
+
+.box-opcion:hover {
+  background-color: #f7f7f7;     /* Cambio de color al pasar el mouse */
+}
+
+
+/* ===============================
+    Ícono de la Opción
+================================= */
+.icono-opcion {
+  flex-shrink: 0;               /* El ícono no se reduce de tamaño si el contenedor se achica */
+}
+
+
+/* ===============================
+    Texto Descriptivo de la Opción
+================================= */
+.texto-opcion {
+  text-align: left;            /* Alineación a la izquierda del texto */
+}
+
+
+/* ===============================
+   Título del Modal
+================================= */
+.modal-card-body .title {
+  font-weight: 700;            /* Título con negrita para destacarlo */
+}

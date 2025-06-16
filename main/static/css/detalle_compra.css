@@ -1,0 +1,197 @@
+/* ==========================
+    Estilos Generales
+========================== */
+
+/* Estilo base del body */
+body {
+  background-color: #f9f9f9;                     /* Fondo gris muy claro para toda la página */
+  font-family: 'Segoe UI', sans-serif;           /* Fuente principal del sitio */
+}
+
+/* Estilo para títulos principales (nivel 3) */
+.title.is-3 {
+  color: #003366;                             
+  margin-bottom: 1.5rem;                         /* Separación inferior */
+  font-weight: bold;                             /* Texto en negrita */
+}
+
+/* Estilo para subtítulos */
+.subtitle.is-5 {
+  color: #0055aa;                                
+  font-weight: 600;                              /* Peso medio */
+  margin-bottom: 0.8rem;                         /* Separación inferior */
+  display: flex;                                 /* Alineación horizontal con íconos */
+  align-items: center;                           /* Alineación vertical centrada */
+  gap: 0.5rem;                                    /* Espacio entre texto e ícono */
+}
+
+/* Estilo para secciones principales */
+.section {
+  background-color: white;                       /* Fondo blanco para contrastar */
+  border-radius: 12px;                           /* Bordes redondeados */
+  padding: 2rem;                                  /* Espaciado interior */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);     /* Sombra sutil */
+}
+
+
+/* ==========================
+    Secciones de Datos
+========================== */
+
+/* Caja de información destacada */
+.info-block {
+  background-color: #f0f4f8;                  
+  border: 1px solid #cdd4dc;                     /* Borde tenue */
+  padding: 1rem 1.2rem;                          /* Espaciado interno */
+  border-radius: 8px;                            /* Bordes redondeados */
+  margin-bottom: 1rem;                           /* Separación con otros bloques */
+  color: #2e2e2e;                                /* Texto gris oscuro */
+}
+
+/* Espaciado interno entre párrafos dentro de info-block */
+.info-block p {
+  margin-bottom: 0.5rem;
+}
+
+/* Color especial para textos resaltados dentro de info-block */
+.info-block strong {
+  color: #003366;
+}
+
+
+/* ==========================
+    Archivos Adjuntos
+========================== */
+
+/* Espaciado entre párrafos dentro del contenedor de archivos */
+.file-links p {
+  margin-bottom: 0.6rem;
+}
+
+/* Estilo para botones de descarga */
+.file-links a.button {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+}
+
+
+/* ==========================
+   Imágenes
+========================== */
+
+/* Contenedor de galería de imágenes */
+.imagenes-grid {
+  display: flex;                    /* Muestra imágenes en línea */
+  gap: 1rem;                        /* Espacio entre imágenes */
+  flex-wrap: wrap;                 /* Permite que bajen a la siguiente línea si no caben */
+  justify-content: flex-start;    /* Alineación izquierda */
+  margin-top: 1rem;                /* Separación superior */
+}
+
+/* Estilo para cada contenedor de imagen */
+.imagenes-grid .image-container {
+  position: relative;
+  width: 140px;
+  height: 105px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Estilo para la imagen en sí */
+.imagenes-grid img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;               /* Cubre sin deformar */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto zoom al pasar el mouse */
+.imagenes-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Botón de descarga debajo de cada imagen */
+.download-btn {
+  background-color: #0055aa;
+  color: white;
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 0.3rem 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #003f7f;
+}
+
+
+/* ==========================
+   Botón Volver
+========================== */
+
+/* Estilo para botón de retroceso o acción secundaria */
+.button.is-danger {
+  background-color: #d32f2f;           
+  color: white;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.button.is-danger:hover {
+  background-color: #aa1c1c;
+}
+
+
+/* ==========================
+  Modal de imagen
+========================== */
+
+/* Imagen dentro del modal */
+.modal-content img {
+  border-radius: 10px;
+  max-height: 90vh;
+}
+
+/* Fondo oscuro para cerrar modal */
+.modal-close {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+
+/* ==========================
+    Íconos de sección
+========================== */
+.icon-section {
+  color: #0055aa;        
+  font-size: 1rem;
+}
+
+
+/* ==========================
+    Textarea solo lectura
+========================== */
+.descripcion-readonly {
+  width: 100%;
+  height: 200px;
+  resize: none;                            /* Desactiva redimensión */
+  overflow-y: auto;                        /* Scroll vertical si el contenido es largo */
+  background-color: #fcf7f7;
+  border: 1px solid #dbdbdb;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  color: #363636;
+  font-family: 'Segoe UI', sans-serif;
+}

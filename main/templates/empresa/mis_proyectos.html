@@ -1,0 +1,531 @@
+{% extends 'base/base_empresa.html' %}
+{% block content %} 
+{% load static %}
+<!-- Contenido principal -->
+<section class="column is-10 p-6 mb-4 has-background">
+  <div class="form-wrapperProyecto">
+    <h1 class="title is-3 has-text-centered has-text-black">
+      Mis Proyectos Comprados
+    </h1>
+
+    <!-- Filtros y buscador -->
+    <div class="columns mb-4">
+      <div class="column is-4">
+        <div class="select is-fullwidth">
+          <select>
+            <option>Categoría</option>
+            <option>Construcción</option>
+            <option>Obras Menores</option>
+            <option>Electricidad</option>
+            <option>Remodelación</option>
+          </select>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="select is-fullwidth">
+          <select>
+            <option>Subcategoría</option>
+            <option>Remodelación</option>
+            <option>Exterior</option>
+            <option>Interior</option>
+            <option>Iluminación</option>
+          </select>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="field">
+          <div class="control has-icons-left">
+            <input class="input" type="text" placeholder="Buscar proyecto..." />
+            <span class="icon is-left"><i class="fas fa-search"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable">
+        <thead>
+          <tr>
+            <th class="has-text-black">Nombre</th>
+            <th class="has-text-black">Categoría</th>
+            <th class="has-text-black">Subcategoría</th>
+            <th class="has-text-black">Estado</th>
+            <th class="has-text-black">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Remodelación Casa</td>
+            <td>Construcción</td>
+            <td>Remodelación</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="mostrarIconoEstado(this); actualizarEstado(this);"
+                  >
+                    <option value="pendiente">Pendiente</option>
+                    <option value="no_responde">No responde</option>
+                    <option value="contactado">Contactado</option>
+                    <option value="anulado">Anulado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a
+                href="{% url 'detalle_compra' %}"
+                class="button is-small is-link"
+              >
+                <i class="fas fa-eye mr-1"></i> Ver Detalle
+              </a>
+              <a
+                href="#"
+                onclick="confirmarEnvio(this)"
+                data-href="{% url 'mis_propuestas' %}"
+                class="button is-small is-danger is-disabled"
+              >
+                <i class="fas fa-paper-plane mr-1"></i> Enviar Propuesta
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Construcción Terraza</td>
+            <td>Obras Menores</td>
+            <td>Exterior</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="mostrarIconoEstado(this); actualizarEstado(this);"
+                  >
+                    <option value="pendiente">Pendiente</option>
+                    <option value="no_responde">No responde</option>
+                    <option value="contactado">Contactado</option>
+                    <option value="anulado">Anulado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fas estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link">
+                <i class="fas fa-eye mr-1"></i> Ver Detalle
+              </a>
+              <a
+                href="#"
+                onclick="confirmarEnvio(this)"
+                data-href="{% url 'mis_propuestas' %}"
+                class="button is-small is-danger is-disabled"
+              >
+                <i class="fas fa-paper-plane mr-1"></i> Enviar Propuesta
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Ampliación Segundo Piso</td>
+            <td>Construcción</td>
+            <td>Exterior</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="mostrarIconoEstado(this); actualizarEstado(this);"
+                  >
+                    <option value="pendiente">Pendiente</option>
+                    <option value="no_responde">No responde</option>
+                    <option value="contactado">Contactado</option>
+                    <option value="anulado">Anulado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fas estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link">
+                <i class="fas fa-eye mr-1"></i> Ver Detalle
+              </a>
+              <a
+                href="#"
+                onclick="confirmarEnvio(this)"
+                data-href="{% url 'mis_propuestas' %}"
+                class="button is-small is-danger is-disabled"
+              >
+                <i class="fas fa-paper-plane mr-1"></i> Enviar Propuesta
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Instalación Eléctrica</td>
+            <td>Electricidad</td>
+            <td>Iluminación</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="mostrarIconoEstado(this); actualizarEstado(this);"
+                  >
+                    <option value="pendiente">Pendiente</option>
+                    <option value="no_responde">No responde</option>
+                    <option value="contactado">Contactado</option>
+                    <option value="anulado">Anulado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fas estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link">
+                <i class="fas fa-eye mr-1"></i> Ver Detalle
+              </a>
+              <a
+                href="#"
+                onclick="confirmarEnvio(this)"
+                data-href="{% url 'mis_propuestas' %}"
+                class="button is-small is-danger is-disabled"
+              >
+                <i class="fas fa-paper-plane mr-1"></i> Enviar Propuesta
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Pintura Fachada</td>
+            <td>Obras Menores</td>
+            <td>Exterior</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="mostrarIconoEstado(this); actualizarEstado(this);"
+                  >
+                    <option value="pendiente">Pendiente</option>
+                    <option value="no_responde">No responde</option>
+                    <option value="contactado">Contactado</option>
+                    <option value="anulado">Anulado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fas estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link">
+                <i class="fas fa-eye mr-1"></i> Ver Detalle
+              </a>
+              <a
+                href="#"
+                onclick="confirmarEnvio(this)"
+                data-href="{% url 'mis_propuestas' %}"
+                class="button is-small is-danger is-disabled"
+              >
+                <i class="fas fa-paper-plane mr-1"></i> Enviar Propuesta
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Remodelación Oficina</td>
+            <td>Remodelación</td>
+            <td>Interior</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="mostrarIconoEstado(this); actualizarEstado(this);"
+                  >
+                    <option value="pendiente">Pendiente</option>
+                    <option value="no_responde">No responde</option>
+                    <option value="contactado">Contactado</option>
+                    <option value="anulado">Anulado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fas estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link">
+                <i class="fas fa-eye mr-1"></i> Ver Detalle
+              </a>
+              <a
+                href="#"
+                onclick="confirmarEnvio(this)"
+                data-href="{% url 'mis_propuestas' %}"
+                class="button is-small is-danger is-disabled"
+              >
+                <i class="fas fa-paper-plane mr-1"></i> Enviar Propuesta
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Instalación Paneles Solares</td>
+            <td>Electricidad</td>
+            <td>Iluminación</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="mostrarIconoEstado(this); actualizarEstado(this);"
+                  >
+                    <option value="pendiente">Pendiente</option>
+                    <option value="no_responde">No responde</option>
+                    <option value="contactado">Contactado</option>
+                    <option value="anulado">Anulado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fas estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link">
+                <i class="fas fa-eye mr-1"></i> Ver Detalle
+              </a>
+              <a
+                href="#"
+                onclick="confirmarEnvio(this)"
+                data-href="{% url 'mis_propuestas' %}"
+                class="button is-small is-danger is-disabled"
+              >
+                <i class="fas fa-paper-plane mr-1"></i> Enviar Propuesta
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Refuerzo de Techumbre</td>
+            <td>Construcción</td>
+            <td>Remodelación</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="mostrarIconoEstado(this); actualizarEstado(this);"
+                  >
+                    <option value="pendiente">Pendiente</option>
+                    <option value="no_responde">No responde</option>
+                    <option value="contactado">Contactado</option>
+                    <option value="anulado">Anulado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fas estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link">
+                <i class="fas fa-eye mr-1"></i> Ver Detalle
+              </a>
+              <a
+                href="#"
+                onclick="confirmarEnvio(this)"
+                data-href="{% url 'mis_propuestas' %}"
+                class="button is-small is-danger is-disabled"
+              >
+                <i class="fas fa-paper-plane mr-1"></i> Enviar Propuesta
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Habilitación Local Comercial</td>
+            <td>Remodelación</td>
+            <td>Interior</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="mostrarIconoEstado(this); actualizarEstado(this);"
+                  >
+                    <option value="pendiente">Pendiente</option>
+                    <option value="no_responde">No responde</option>
+                    <option value="contactado">Contactado</option>
+                    <option value="anulado">Anulado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fas estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link">
+                <i class="fas fa-eye mr-1"></i> Ver Detalle
+              </a>
+              <a
+                href="#"
+                onclick="confirmarEnvio(this)"
+                data-href="{% url 'mis_propuestas' %}"
+                class="button is-small is-danger is-disabled"
+              >
+                <i class="fas fa-paper-plane mr-1"></i> Enviar Propuesta
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Terraza con Quincho</td>
+            <td>Obras Menores</td>
+            <td>Exterior</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select
+                    onchange="mostrarIconoEstado(this); actualizarEstado(this);"
+                  >
+                    <option value="pendiente">Pendiente</option>
+                    <option value="no_responde">No responde</option>
+                    <option value="contactado">Contactado</option>
+                    <option value="anulado">Anulado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i class="fas estado-icono fa-clock color-pendiente"></i>
+                </span>
+              </div>
+            </td>
+            <td>
+              <a class="button is-small is-link">
+                <i class="fas fa-eye mr-1"></i> Ver Detalle
+              </a>
+              <a
+                href="#"
+                onclick="confirmarEnvio(this)"
+                data-href="{% url 'mis_propuestas' %}"
+                class="button is-small is-danger is-disabled"
+              >
+                <i class="fas fa-paper-plane mr-1"></i> Enviar Propuesta
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Paginación -->
+    <nav
+      class="pagination is-centered mt-4"
+      role="navigation"
+      aria-label="pagination"
+    >
+      <a class="pagination-previous">Anterior</a>
+      <a class="pagination-next">Siguiente</a>
+      <ul class="pagination-list">
+        <li>
+          <a class="pagination-link is-current" aria-label="Página 1">1</a>
+        </li>
+        <li><a class="pagination-link">2</a></li>
+        <li><a class="pagination-link">3</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const buscador = document.querySelector(
+      'input[placeholder="Buscar proyecto..."]'
+    );
+    const filtroCategoria = document.querySelectorAll("select")[0];
+    const filtroSubcategoria = document.querySelectorAll("select")[1];
+    const filas = document.querySelectorAll("tbody tr");
+
+    function filtrarTabla() {
+      const texto = buscador.value.toLowerCase();
+      const categoriaSeleccionada = filtroCategoria.value;
+      const subcategoriaSeleccionada = filtroSubcategoria.value;
+
+      filas.forEach((fila) => {
+        const columnas = fila.querySelectorAll("td");
+        const nombre = columnas[0].textContent.toLowerCase();
+        const categoria = columnas[1].textContent;
+        const subcategoria = columnas[2].textContent;
+
+        const coincideTexto = nombre.includes(texto);
+        const coincideCategoria =
+          categoriaSeleccionada === "Categoría" ||
+          categoria === categoriaSeleccionada;
+        const coincideSubcategoria =
+          subcategoriaSeleccionada === "Subcategoría" ||
+          subcategoria === subcategoriaSeleccionada;
+
+        fila.style.display =
+          coincideTexto && coincideCategoria && coincideSubcategoria
+            ? ""
+            : "none";
+      });
+    }
+
+    buscador.addEventListener("input", filtrarTabla);
+    filtroCategoria.addEventListener("change", filtrarTabla);
+    filtroSubcategoria.addEventListener("change", filtrarTabla);
+
+    // ✅ CORRECTO: aplicar íconos al cargar
+    document.querySelectorAll("select").forEach((select) => {
+      if (select.closest(".control")) {
+        mostrarIconoEstado(select);
+      }
+    });
+  });
+
+  // Funciones fuera del DOMContentLoaded
+  function actualizarEstado(selectElement) {
+    const fila = selectElement.closest("tr");
+    const boton = fila.querySelector("a.button.is-danger");
+
+    if (boton) {
+      const estado = selectElement.value.toLowerCase();
+      if (estado === "contactado") {
+        boton.classList.remove("is-disabled");
+      } else {
+        boton.classList.add("is-disabled");
+      }
+    }
+  }
+
+  function confirmarEnvio(elemento) {
+    if (elemento.classList.contains("is-disabled")) {
+      return;
+    }
+    const confirmado = confirm(
+      "¿Estás seguro de que quieres enviar tu propuesta?"
+    );
+    if (confirmado) {
+      window.location.href = elemento.getAttribute("data-href");
+    }
+  }
+
+  function mostrarIconoEstado(select) {
+    const icono = select.closest(".control").querySelector(".estado-icono");
+    const estado = select.value;
+
+    icono.className = "fa-solid estado-icono"; // limpiar
+
+    switch (estado) {
+      case "pendiente":
+        icono.classList.add("fa-clock", "color-pendiente");
+        break;
+      case "no_responde":
+        icono.classList.add("fa-user-slash", "color-no-responde");
+        break;
+      case "contactado":
+        icono.classList.add("fa-phone", "color-contactado");
+        break;
+      case "anulado":
+        icono.classList.add("fa-xmark-circle", "color-anulado");
+        break;
+    }
+  }
+</script>
+{% endblock %}

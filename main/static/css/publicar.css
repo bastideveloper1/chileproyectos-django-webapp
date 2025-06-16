@@ -1,0 +1,28 @@
+
+
+/*  Estilo para inputs de solo lectura */
+input[readonly] {
+  background-color: #f5f5f5; /* Fondo gris claro para indicar que no se puede editar */
+  border: 1px solid #ccc;    /* Borde gris para mantener la estética uniforme */
+} 
+
+/* Espaciado entre secciones del formulario */
+.seccion-formulario {
+  margin-bottom: 5rem; /* Espacio inferior amplio para separar secciones */
+}
+
+/*  Separación entre párrafos dentro del cuerpo del modal */
+.modal-card-body p {
+  margin-bottom: 0.5rem; /* Espacio inferior para mejorar legibilidad entre párrafos */
+} 
+
+/*  Estilo del formulario de publicación */
+.form-publicacion {
+  max-width: 600px;   /* Ancho máximo para mantener el diseño centrado y legible */
+  margin: 0 auto;     /* Centrado horizontal automático */
+} 
+
+/*  Espaciado general para la sección de publicación */
+.section_publicar {
+  margin: 3rem; /* Margen externo uniforme alrededor de toda la sección */
+}

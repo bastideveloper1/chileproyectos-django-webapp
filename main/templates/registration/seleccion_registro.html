@@ -1,0 +1,48 @@
+{% extends 'base/base_registration.html' %} 
+ {% block content %}
+
+<section class="section registro-opciones">
+  <div class="container has-text-centered">
+    <h2 class="title is-3 has-text-weight-bold subtitulo-subrayado mb-6">
+      ¿Objetivo en ChileProyectos?
+    </h2>
+
+    <div class="registro-opciones-lista">
+      <!-- Cliente -->
+      <a
+        href="{% url 'registro_cliente' %}"
+        class="box opcion-box is-flex is-align-items-flex-start mb-6"
+      >
+        <span class="icon is-large mr-4 mt-2">
+          <i class="fas fa-user fa-2x"></i>
+        </span>
+        <div class="content has-text-left">
+          <p class="has-text-weight-semibold is-size-4 mb-3">Cliente</p>
+          <p class="has-text-grey-dark is-size-5">
+            Da a conocer una necesidad de construcción y publica lo que
+            necesitas.
+          </p>
+        </div>
+      </a>
+
+      <!-- Empresa -->
+      <a
+        href="{% url 'registro_empresa' %}"
+        class="box opcion-box is-flex is-align-items-flex-start"
+      >
+        <span class="icon is-large mr-4 mt-2">
+          <i class="fas fa-wrench fa-2x"></i>
+        </span>
+        <div class="content has-text-left">
+          <p class="has-text-weight-semibold is-size-4 mb-3">Empresa</p>
+          <p class="has-text-grey-dark is-size-5">
+            Da a conocer tus servicios de construcción y conecta con potenciales
+            clientes.
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

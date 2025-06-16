@@ -1,0 +1,54 @@
+/* ===============================
+    Estilo para el contenedor tipo .box
+================================= */
+.box {
+  min-height: 300px;                      /* Altura mínima para mantener proporción */
+  padding: 1.5rem;                        /* Espaciado interno (padding) uniforme */
+  border-radius: 10px;                   /* Bordes redondeados para estilo moderno */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra ligera para dar profundidad */
+}
+
+/* Espaciado superior para botones dentro del contenedor */
+.button {
+  margin-top: 1rem;
+}
+
+
+/* ===============================
+    Estilo general para tarjetas (.card)
+================================= */
+.card {
+  border-radius: 8px;                    /* Bordes suavemente redondeados */
+  overflow: hidden;                      /* Oculta el contenido que se salga de la tarjeta */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);/* Sombra ligera inicial */
+  transition: all 0.3s ease;             /* Transición suave en hover */
+}
+
+/* Efecto al pasar el mouse por encima de la tarjeta */
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada al hacer hover */
+}
+
+/* Estilo para los párrafos dentro del contenido de la tarjeta */
+.card-content p {
+  margin-bottom: 0.3rem;  /* Separación inferior entre párrafos */
+  font-size: 0.9rem;      /* Tamaño de fuente ligeramente reducido */
+}
+
+/* Hace que los botones dentro de la tarjeta ocupen el ancho completo */
+.card .button {
+  width: 100%;
+}
+
+
+/* ===============================
+    Estilo para imágenes dentro de .box (por ejemplo beneficios)
+================================= */
+.box img {
+  max-height: 64px;       /* Altura máxima para las imágenes, evita que se desborden */
+}
+
+/* Margen superior para párrafos dentro del .box */
+.box p {
+  margin-top: 0.5rem;
+}

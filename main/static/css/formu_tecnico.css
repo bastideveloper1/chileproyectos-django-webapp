@@ -1,0 +1,153 @@
+/* ==========================
+    Layout General Base
+========================== */
+
+/* Aplica a todo el documento HTML y cuerpo */
+html, body {
+  height: auto;              /* Altura automática para ajustarse al contenido */
+  overflow-y: auto;          /* Permite el scroll vertical si es necesario */
+}
+
+/* Contenedor principal del diseño */
+.layout-wrapper {
+  display: flex;             /* Organiza elementos en fila (útil para layouts tipo sidebar + contenido) */
+  min-height: 100vh;         /* Asegura que ocupe toda la altura de la ventana */
+  overflow: hidden;          /* Oculta contenido que se desborde horizontalmente */
+}
+
+
+/* ==========================
+    Contenido Principal
+========================== */
+
+/* Sección que contiene el formulario u otro contenido principal */
+.main-content {
+  flex: 1;                   /* Toma el espacio disponible restante */
+  overflow-y: auto;          /* Permite scroll vertical si el contenido es largo */
+  padding: 2rem;             /* Espaciado interno */
+  background-color: white;   /* Fondo blanco para claridad */
+}
+
+
+/* ==========================
+    Formulario Centralizado
+========================== */
+
+/* Contenedor visual del formulario */
+.form-wrapper {
+  max-width: 700px;             /* Ancho máximo del formulario */
+  margin: 1rem auto;            /* Centrado horizontal */
+  background-color: #ffffffe3;  /* Blanco con un poco de transparencia */
+  padding: 2rem;                /* Espaciado interno */
+  border-radius: 10px;          /* Bordes redondeados */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra para destacar el formulario */
+}
+
+
+/* ==========================
+    Estilos de Inputs
+========================== */
+
+/* Input personalizados con estilos suaves */
+.custom-input {
+  background-color: #fcf7f7;     /* Fondo claro */
+  border: 1px solid #444;        /* Borde gris oscuro */
+  color: #000;                   /* Texto negro */
+  transition: box-shadow 0.3s ease; /* Transición al enfocar */
+}
+
+/* Efecto cuando el input está enfocado */
+.custom-input:focus {
+  box-shadow: 0 0 5px #0055aa;   
+  border-color: #0055aa;         /* Borde azul */
+}
+
+
+/* ==========================
+    Textareas
+========================== */
+
+/* Textareas sin opción de redimensionar */
+textarea.no-resize {
+  resize: none;                  /* Desactiva el cambio de tamaño */
+  overflow-y: auto;              /* Permite scroll vertical interno */
+  max-height: 200px;             /* Altura máxima permitida */
+}
+
+
+/* ==========================
+    Botones Personalizados
+========================== */
+
+/* Botón tipo cancelar */
+.button.is-cancelar {
+  background-color: #d32f2f;     
+  color: white;                  /* Texto blanco */
+  border: none;                  /* Sin borde */
+}
+
+/* Hover del botón cancelar */
+.button.is-cancelar:hover {
+  background-color: #a72828;    
+}
+
+/* Botón principal */
+.button.is-primary {
+  background-color: #0055aa;    
+  color: white;                  /* Texto blanco */
+  border: none;
+}
+
+/* Hover del botón principal */
+.button.is-primary:hover {
+  background-color: #003f7f;     
+}
+
+
+/* ==========================
+    Toast de confirmación
+========================== */
+
+/* Estilo para mensajes flotantes tipo toast */
+.toast {
+  position: fixed;               /* Fijo en pantalla */
+  top: 20px;                     /* Distancia desde el top */
+  left: 50%;                     /* Centrado horizontal */
+  transform: translateX(-50%);   /* Ajuste exacto del centro */
+  z-index: 9999;                 /* Por encima de todo */
+  width: fit-content;            /* Ancho ajustado al contenido */
+  min-width: 300px;              /* Mínimo de ancho */
+  max-width: 90%;                /* Máximo ancho relativo */
+  text-align: center;            /* Texto centrado */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra */
+}
+
+/* Oculta el toast cuando es necesario */
+.is-hidden {
+  display: none !important;
+}
+
+
+/* ==========================
+    Campo de Fecha
+========================== */
+
+/* Mejora visual del input tipo fecha */
+input[type="date"] {
+  padding-left: 2.25em;          /* Espacio para ícono a la izquierda */
+}
+
+/* Alineación correcta del ícono en inputs con iconos */
+.has-icons-left .icon.is-left {
+  left: 0.75em;                  /* Distancia desde el borde izquierdo */
+  top: 50%;                      /* Centrado vertical */
+  transform: translateY(-50%);   /* Ajuste fino de posición */
+  pointer-events: none;         /* El ícono no intercepta eventos del mouse */
+  color: #888;                  /* Color gris para ícono */
+}
+
+/* Efecto de foco para input tipo fecha */
+input[type="date"]:focus {
+  box-shadow: 0 0 5px #0055aa;   
+  border-color: #0055aa;         /* Borde azul */
+}

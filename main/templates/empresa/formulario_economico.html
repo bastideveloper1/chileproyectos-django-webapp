@@ -1,0 +1,120 @@
+{% extends 'base/base_empresa.html' %}  
+{% block content %}  
+{% load static %}
+
+<!-- Contenido principal -->
+<section class="column is-10 p-6 mb-4 has-background">
+  <div class="form-wrapper">
+    <h2 class="title is-4 has-text-centered has-text-black">
+      Formulario Propuesta Económica
+    </h2>
+
+    <form id="form-economico" class="form-box">
+      <div class="field">
+        <label class="label">Presupuesto Estimado ($)</label>
+        <div class="control">
+          <input
+            class="input custom-input"
+            type="number"
+            placeholder="Ej: 1500000"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Precio Detallado</label>
+        <div class="control">
+          <textarea
+            class="textarea custom-input no-resize"
+            rows="5"
+            placeholder="Describe cada ítem de costo, mano de obra, materiales, etc."
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Descripción de lo que se incluye</label>
+        <div class="control">
+          <textarea
+            class="textarea custom-input no-resize"
+            rows="4"
+            placeholder="Ej: Incluye cemento, pintura, transporte, etc."
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Adjuntar presupuesto (opcional)</label>
+        <div class="file has-name is-fullblack">
+          <label class="file-label">
+            <input
+              class="file-input"
+              type="file"
+              onchange="mostrarNombreArchivo(this)"
+            />
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">Seleccionar archivo</span>
+            </span>
+            <span class="file-name" id="nombre-archivo"
+              >Ningún archivo seleccionado</span
+            >
+          </label>
+        </div>
+      </div>
+
+      <div class="buttons is-right mt-4">
+        <a href="{% url 'mis_propuestas' %}" class="button is-cancelar"
+          >Cancelar</a
+        >
+        <button class="button is-primary">Guardar</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  function mostrarNombreArchivo(input) {
+    const nombre =
+      input.files.length > 0
+        ? input.files[0].name
+        : "Ningún archivo seleccionado";
+    document.getElementById("nombre-archivo").textContent = nombre;
+  }
+
+  function cerrarNotificacion() {
+    document.getElementById("mensaje-exito").classList.add("is-hidden");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("form-economico");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const mensaje = document.getElementById("mensaje-exito");
+      mensaje.classList.remove("is-hidden");
+
+      setTimeout(() => {
+        mensaje.classList.add("is-hidden");
+        window.location.href = "{% url 'mis_propuestas' %}";
+      }, 1000);
+    });
+  });
+</script>
+
+<div
+  id="mensaje-exito"
+  class="notification is-success is-light toast is-hidden"
+>
+  <button class="delete" onclick="cerrarNotificacion()"></button>
+  <span class="icon-text is-align-items-center">
+    <span class="icon has-text-success">
+      <i class="fas fa-check-circle"></i>
+    </span>
+    <span>¡Tu propuesta económica ha sido guardada exitosamente!</span>
+  </span>
+</div>
+
+{% endblock %}

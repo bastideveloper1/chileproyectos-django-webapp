@@ -1,0 +1,211 @@
+/* ============================================================
+   GENERALES
+============================================================ */
+
+/* Define el tamaño total del documento y desactiva el scroll vertical inicial */
+html, body {
+  height: 100%;
+  overflow-y: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Restaura el scroll vertical solo en el body, y define fuente base */
+body {
+  overflow-y: auto;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* ============================================================
+   LOGIN
+============================================================ */
+
+/* Centra vertical y horizontalmente el contenido del login */
+.login-section {
+  min-height: calc(100vh - 150px); /* espacio considerando posible navbar/footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Caja blanca con sombra para el formulario de login */
+.login-box {
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* Título del formulario con espacio inferior */
+.login-section .title {
+  margin-bottom: 2rem;
+}
+
+/* Espaciado entre campos del formulario */
+.login-box form .field {
+  margin-bottom: 1.2rem;
+}
+
+/* Espacio superior en botón */
+.login-box .button {
+  margin-top: 1rem;
+}
+
+/* Tamaño del texto de enlaces */
+.login-box a {
+  font-size: 0.9rem;
+}
+
+/* Aumenta padding en input para dejar espacio al ícono */
+.login-box .control.has-icons-left .input {
+  padding-left: 2.5em;
+}
+
+/* Posicionamiento del ícono a la izquierda */
+.login-box .icon.is-left {
+  left: 0.75em;
+}
+
+/* Botón para mostrar/ocultar contraseña */
+.toggle-password-button {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+
+/* ============================================================
+   SELECCIÓN DE TIPO DE REGISTRO
+============================================================ */
+
+/* Espaciado superior general */
+.registro-opciones {
+  padding-top: 2rem;
+}
+
+/* Centrado del contenedor */
+.registro-opciones-lista {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* Caja blanca de selección de tipo (cliente o empresa) */
+.registro-opciones .box {
+  padding: 2rem;
+  transition: box-shadow 0.3s;
+}
+
+/* Sombra al pasar el mouse */
+.registro-opciones .box:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo general para cada opción (cliente o empresa) */
+.opcion-box {
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 1.5rem 1.5rem;
+  margin: 0;
+}
+
+/* Efecto al pasar el mouse por encima de cada opción */
+.opcion-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Alineación de íconos dentro de cada opción */
+.opcion-box .icon {
+  align-self: flex-start;
+}
+
+/* Separación entre cada opción */
+.opcion-box + .opcion-box {
+  margin-top: 2rem;
+}
+
+
+/* ============================================================
+   FORMULARIO DE REGISTRO (COMÚN)
+============================================================ */
+
+/* Espaciado superior general para el formulario */
+.registro-form {
+  padding-top: 2rem;
+}
+
+/* Subtítulo con línea decorativa debajo */
+.subtitulo-subrayado {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+  margin-bottom: 2rem;
+}
+
+/* Línea gris decorativa bajo el subtítulo */
+.subtitulo-subrayado::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #d9d9d9;
+}
+
+/* Padding adicional para inputs con íconos */
+.box input.input {
+  padding-left: 2.5em;
+}
+
+/* Posicionamiento y color de íconos dentro de los campos */
+.box .field .control.has-icons-left .icon.is-left {
+  left: 0.75em;
+  top: 0.6em;
+  position: absolute;
+  color: #b5b5b5;
+}
+
+
+/* ============================================================
+   Iconos en Inputs (estilo Bulma)
+============================================================ */
+
+/* Espacio para íconos en campos de entrada */
+.control.has-icons-left .input,
+.control.has-icons-left .textarea {
+  padding-left: 2.5em;
+}
+
+/* Alineación, tamaño y color base de íconos */
+.control.has-icons-left .icon.is-left {
+  position: absolute;
+  height: 1.5rem;
+  width: 1rem;
+  left: 0.75em;
+  top: 50%;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5a5a5e !important;
+  font-size: 1.1rem;
+}
+
+/* Color de ícono cambia al enfocar el input */
+.control .input:focus + .icon.is-left,
+.control .textarea:focus + .icon.is-left {
+  color: #0055aa;
+}

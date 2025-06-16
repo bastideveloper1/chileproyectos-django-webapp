@@ -1,0 +1,244 @@
+{% extends 'base/base_cliente.html' %} 
+ {% block content %} {% load static %}
+
+<section class="column is-10 p-6 mb-4">
+  <div class="form-wrapperPropuesta">
+    <h1 class="title is-3 has-text-centered has-text-black">
+      Ofertas recibidas para:
+      <span class="has-text-info is-link">Remodelación Cocina</span>
+    </h1>
+
+    <div class="columns mb-4">
+      <div class="column is-4">
+        <div class="field">
+          <div class="control has-icons-left">
+            <input class="input" type="text" placeholder="Buscar empresa..." />
+            <span class="icon is-left"><i class="fas fa-search"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-containerPropuesta mt-4">
+      <table class="table is-fullwidth is-striped is-hoverable">
+        <thead>
+          <tr>
+            <th>Empresa</th>
+            <th>Presupuesto</th>
+            <th>Estado</th>
+            <th>Oferta Económica</th>
+            <th>Oferta Técnica</th>
+            <th>Aceptado</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for empresa in "12345678" %}
+          <tr>
+            <td>Constructora ABC{{ forloop.counter }}</td>
+            <td>${{ forloop.counter }}.000.000</td>
+            <td>
+              <div class="control has-icons-left">
+                <div class="select is-small">
+                  <select onchange="mostrarIconoEstado(this)">
+                    <option value="sin_estado">Sin estado</option>
+                    <option value="aceptado">Aceptado</option>
+                    <option value="rechazado">Rechazado</option>
+                  </select>
+                </div>
+                <span class="icon is-small is-left">
+                  <i
+                    class="fa-solid estado-icono fa-circle-question color-no_presentado"
+                  ></i>
+                </span>
+              </div>
+            </td>
+            <!-- Económica -->
+            <td class="has-text-centered">
+              <a
+                class="button is-small is-info"
+                onclick="abrirModal('modalEconomica')"
+              >
+                <i class="fas fa-file-invoice-dollar"></i> Ver info.
+              </a>
+            </td>
+            <!-- Técnica -->
+            <td class="has-text-centered">
+              <a
+                class="button is-small is-info"
+                onclick="abrirModal('modalTecnica')"
+              >
+                <i class="fas fa-file-alt"></i> Ver info.
+              </a>
+            </td>
+            <td class="has-text-centered">
+              <button class="button is-small is-link mr-2">
+                <i class="fas fa-check"></i>
+              </button>
+              <button class="button is-small is-danger">
+                <i class="fas fa-times"></i>
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <nav
+    class="pagination is-centered mt-4"
+    role="navigation"
+    aria-label="pagination"
+  >
+    <a class="pagination-previous">Anterior</a>
+    <a class="pagination-next">Siguiente</a>
+    <ul class="pagination-list">
+      <li><a class="pagination-link is-current" aria-label="Página 1">1</a></li>
+      <li><a class="pagination-link">2</a></li>
+      <li><a class="pagination-link">3</a></li>
+    </ul>
+  </nav>
+</section>
+<!-- Modal Oferta Económica -->
+<div id="modalEconomica" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Oferta Económica</p>
+      <button
+        class="delete"
+        aria-label="close"
+        onclick="cerrarModal('modalEconomica')"
+      ></button>
+    </header>
+
+    <section class="modal-card-body">
+      <p><strong>Presupuesto Propuesto:</strong> $1.500.000</p>
+
+      <!-- Precio Detallado -->
+      <div class="field mt-4">
+        <label class="label">Precio Detallado</label>
+        <div class="control">
+          <textarea
+            class="textarea"
+            style="resize: none; max-height: 120px; overflow-y: auto"
+            disabled
+          >
+1. Materiales de construcción: $800.000
+2. Mano de obra especializada: $500.000
+3. Transporte y logística: $200.000 
+Forma de Pago: 50% inicial, 50% al finalizar.
+Plazo estimado: 15 días hábiles
+          </textarea>
+        </div>
+      </div>
+
+      <!-- Descripción Adicional -->
+      <div class="field mt-4">
+        <label class="label">Descripción Adicional</label>
+        <div class="control">
+          <textarea
+            class="textarea"
+            style="resize: none; max-height: 120px; overflow-y: auto"
+            disabled
+          >
+Se incluye instalación de cerámicas, pintura final, retiro de escombros, y garantía de 6 meses por terminaciones.
+          </textarea>
+        </div>
+      </div>
+
+      <!-- Documento Adjunto -->
+      <div class="field mt-4">
+        <label class="label">Documento Económico adjunto</label>
+        <a class="button is-link" href="#"
+          ><i class="fas fa-download mr-2"></i> Descargar PDF</a
+        >
+      </div>
+    </section>
+
+    <footer class="modal-card-foot">
+      <button class="button" onclick="cerrarModal('modalEconomica')">
+        Cerrar
+      </button>
+    </footer>
+  </div>
+</div>
+
+<!-- Modal Oferta Técnica -->
+<div id="modalTecnica" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card" style="width: 700px">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Oferta Técnica</p>
+      <button
+        class="delete"
+        aria-label="close"
+        onclick="cerrarModal('modalTecnica')"
+      ></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="field">
+        <label class="label">Plazo de ejecución</label>
+        <input class="input" type="date" value="2025-07-01" disabled />
+      </div>
+
+      <div class="field mt-4">
+        <label class="label">Metodología de trabajo</label>
+        <div class="control">
+          <textarea
+            class="textarea"
+            style="resize: none; max-height: 120px; overflow-y: auto"
+            disabled
+          >
+1. Evaluación inicial del espacio.
+2. Demoliciones controladas y retiro de escombros.
+3. Instalaciones eléctricas y sanitarias según plano.
+4. Terminaciones finas con materiales certificados.
+          </textarea>
+        </div>
+      </div>
+
+      <div class="field mt-4">
+        <label class="label">Documento técnico adjunto</label>
+        <a class="button is-link" href="#"
+          ><i class="fas fa-download mr-2"></i> Descargar PDF</a
+        >
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button" onclick="cerrarModal('modalTecnica')">
+        Cerrar
+      </button>
+    </footer>
+  </div>
+</div>
+
+<script>
+  function mostrarIconoEstado(select) {
+    const icono = select.closest(".control").querySelector(".estado-icono");
+    const estado = select.value;
+
+    icono.className = "fa-solid estado-icono";
+
+    switch (estado) {
+      case "sin_estado":
+        icono.classList.add("fa-circle-question", "color-no_presentado");
+        break;
+      case "aceptado":
+        icono.classList.add("fa-circle-check", "color-aceptado");
+        break;
+      case "rechazado":
+        icono.classList.add("fa-ban", "color-cancelado");
+        break;
+    }
+  }
+  function abrirModal(id) {
+    document.getElementById(id).classList.add("is-active");
+  }
+
+  function cerrarModal(id) {
+    document.getElementById(id).classList.remove("is-active");
+  }
+</script>
+
+{% endblock %}

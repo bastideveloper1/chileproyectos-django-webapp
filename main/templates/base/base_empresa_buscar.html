@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mis Proyectos - Empresa</title>
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/busqueda.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar personalizado -->
+    <section class="navbar-section">
+      <div
+        class="container is-flex is-align-items-center is-justify-content-center is-flex-wrap-wrap py-2"
+      >
+        <!-- Logo a la izquierda -->
+        <div class="navbar-logo mr-6">
+          <figure class="image is-64x64 is-skeleton">
+            <img
+              src="{% static 'img/logo-chileproyectos.png.jpeg' %}"
+              alt="ChileProyectos"
+            />
+          </figure>
+        </div>
+
+        <!-- Enlaces centrados -->
+        <div
+          class="navbar-links is-flex is-align-items-center is-justify-content-center"
+        >
+          <a
+            href="{% url 'home' %}"
+            class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Inicio</a
+          >
+          <a
+            href="{% url 'mis_proyectos' %}"
+            class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Mis Proyectos</a
+          >
+          <a
+            href=""
+            class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Mi Perfil</a
+          >
+          <a class="has-text-white mx-4 has-text-weight-semibold is-size-5"
+            >Tienda</a
+          >
+        </div>
+      </div>
+    </section>
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer chile-footer">
+      <div class="container">
+        <div class="columns is-multiline">
+          <!-- Logo + redes -->
+          <div class="column is-4 has-text-white">
+            <figure class="image is-96x96 mb-3">
+              <img
+                class="is-rounded"
+                src="{% static 'img/logo-chileproyectos.png.jpeg' %}"
+                alt="Logo ChileProyectos"
+              />
+            </figure>
+            <div class="social-icons mt-2">
+              <a href="#" class="icon has-text-white mx-1"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="icon has-text-white mx-1"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="icon has-text-white mx-1"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="#" class="icon has-text-white mx-1"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Menú + contacto -->
+          <div class="column is-8 has-text-white">
+            <div class="columns is-multiline">
+              <!-- Navegación -->
+              <div class="column is-4">
+                <p class="has-text-weight-semibold">Tema</p>
+                <ul>
+                  <li><a href="#" class="has-text-white">Inicio</a></li>
+                  <li><a href="#" class="has-text-white">Mis Proyectos</a></li>
+                  <li><a href="#" class="has-text-white">Contacto</a></li>
+                </ul>
+              </div>
+
+              <!-- Información de contacto -->
+              <div class="column is-8">
+                <p class="has-text-weight-semibold">Contacto</p>
+                <p class="mb-1">Correo: contacto@chileproyectos.cl</p>
+                <p>Teléfono: +56 9 5009 2733</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Créditos -->
+          <div class="column is-12 has-text-centered has-text-white mt-4">
+            <p>Desarrollado por Macroactiva SpA - Derechos Reservados 2025</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>
